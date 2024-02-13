@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin: 10px 0px;
+}
+/* h3 {
+  color: rgb(138, 7, 72);
+}
+h2 {
+  color: #47026e;
+} */
+*/ .hover {
+  color: rgb(15, 238, 52);
+  font-size: larger;
+}
+.hover1 {
+  color: rgb(230, 24, 151);
+  font-size: larger;
+}
+a {
+  text-decoration: none;
+}
+.list {
+  height: 40%;
+}
+.back {
+  text-align: right;
+}
+img {
+  width: 40%;
+}
+tr {
+  text-align: left;
+}
+
+#main {
+  color: rgb(241, 19, 19);
+  font-size: 100 pt;
+  text-align: right;
+}
+/*p{color:blue;}
+.selected{color:#c16af5;}*/
+
+/* ******************************************************* */
+
+.wrapper {
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.list a {
+  color: #000;
+  text-decoration: underline;
+}
+
+.list a:hover {
+  font-size: 18px;
+}
+
+/* ******************************************************* */
+
+.form_container {
+  margin: 0 auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 25%;
+  margin-top: 20px;
+  min-width: 275px;
+}
+
+.form_container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+}
+button[type="submit"],
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #38853b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form_center {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.tasks {
+  display: flex;
+}
+
+.next_task {
+  font-size: 20px;
+  margin: 20px 0px;
+}
+input[type="radio"] {
+  opacity: 0;
+}
+.form_task4 {
+  max-width: 60%;
+}
+.form_task4 form {
+  justify-content: center;
+  flex-direction: row;
+}
+label img {
+  width: 200px;
+  cursor: pointer;
+  margin: 10px;
+}
+/* ******************************************************* */
+/* модифікатор для форми */
+.form_main {
+  margin-bottom: 20px;
+}
+/* ******************************************************* */
