@@ -10,7 +10,7 @@ require '../config.php';
 <body>
    <?php
    $variable = $_GET['formvariable'];
-   echo "<div><b>Число додане до поточного файлу методом get:" . $variable . "</div></b>";
+   echo "<div><b>Число додане до поточного файлу методом get: " . $variable . "</div></b>";
    $variableFromEx1_1_5_1 = $_GET['formvariableGet'];
    echo "<br>";
    echo "<div><b>Значення змінної передане з файлу example1_1_5_1.php, помножене на 2 рівне " . ($variableFromEx1_1_5_1 * 2) . "</div></b>";

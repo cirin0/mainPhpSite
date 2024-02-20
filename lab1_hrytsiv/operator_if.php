@@ -2,8 +2,6 @@
 require("../config.php");
 //include_once("../db.php");
 include_once("../function.php");
-header("Content-Type: text/html; charset=" . $config{
-'charset'});
 ?>
 <html>
 
