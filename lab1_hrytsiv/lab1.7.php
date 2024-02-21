@@ -13,7 +13,7 @@ require '../config.php';
 
 <body>
    <div class="wrapper">
-      <div class="form_container">
+      <div class="form_container" style="min-width: 340px;">
          <h3>Введіть значення температур:</h3>
          <form method="post" action="">
             <label for="temp1">Температура 1:</label>
