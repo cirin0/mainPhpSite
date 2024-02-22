@@ -58,6 +58,10 @@ tr {
 
 .wrapper {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 15px;
 }
 
 .list {
@@ -85,9 +89,9 @@ tr {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 25%;
   margin-top: 20px;
   min-width: 275px;
+  margin-bottom: 10px;
 }
 
 .form_container form {
@@ -126,21 +130,6 @@ input[type="submit"] {
 .next_task {
   font-size: 20px;
   margin: 20px 0px;
-}
-input[type="radio"] {
-  opacity: 0;
-}
-.form_task4 {
-  max-width: 60%;
-}
-.form_task4 form {
-  justify-content: center;
-  flex-direction: row;
-}
-label img {
-  width: 200px;
-  cursor: pointer;
-  margin: 10px;
 }
 /* ******************************************************* */
 /* модифікатор для форми */
