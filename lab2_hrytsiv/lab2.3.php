@@ -28,6 +28,7 @@ require '../config.php';
       if (isset($_POST['submit'])) {
          $x = $_POST["x"];
          $y = $_POST["y"];
+         echo "<div>";
          if (is_numeric($x) && is_numeric($y)) {
             if ($x > 0 && $y > 0) {
                $res = $x / $y + ($x * $y) ^ 2;
@@ -36,11 +37,12 @@ require '../config.php';
             } else {
                $res = $x ^ 2;
             }
-            echo "Введені числа: x = $x, y = $y<br>";
-            echo "Обчислений приклад: \"Результат: $res\"";
+            echo "<p>Введені числа: x = $x, y = $y</p>";
+            echo "<p>Обчислений приклад: \"Результат: $res\"</p>";
          } else {
             echo "Будь ласка, введіть числа.";
          }
+         echo "</div>";
       }
       ?>
       <div class="next_task"><a href="lab2.4.php">Завдання 4</a><br> <br> <a href="/index.php">Головна</a></div>

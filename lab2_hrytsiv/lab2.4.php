@@ -16,7 +16,7 @@ require '../config.php';
    <div class="wrapper">
       <h3>Виберіть, будь ласка, зображення кота разом з собакою</h3>
       <div class="form_container">
-         <form id="SubmitForm" method="post">
+         <form method="post">
             <div class="animal_container">
                <input type="radio" name="animal" id="catDog" value="catDog">
                <label for="catDog"><img src="./images/cat-with-dog.jpg" alt="Кіт з Собакою"></label>

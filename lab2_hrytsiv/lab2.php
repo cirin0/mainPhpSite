@@ -24,7 +24,6 @@ require '../config.php';
          </form>
       </div>
       <?php
-      echo '<div class="form_center">';
       if (isset($_POST['submit'])) {
          $num1 = $_POST["num1"];
          $num2 = $_POST["num2"];
@@ -32,13 +31,14 @@ require '../config.php';
             $subtraction = $num1 - $num2;
             $multiplication = $num1 * $num2;
             $modulus = $num1 % $num2;
-            echo "Результат віднімання: $num1 - $num2 = $subtraction<br>";
-            echo "Результат множення: $num1 * $num2 = $multiplication<br>";
-            echo "Результат залишку від ділення: $num1 % $num2 = $modulus<br>";
-            echo '</div>';
+            echo "<div>";
+            echo "<p>Результат віднімання: $num1 - $num2 = $subtraction</p>";
+            echo "<p>Результат множення: $num1 * $num2 = $multiplication</p>";
+            echo "<p>Результат залишку від ділення: $num1 % $num2 = $modulus</p>";
          } else {
             echo "Будь ласка, введіть числові значення.";
          }
+         echo "</div>";
       }
       ?>
       <div class="next_task"><a href="lab2.2.php">Завдання 2</a><br> <br> <a href="/index.php">Головна</a></div>
