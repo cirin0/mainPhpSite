@@ -45,7 +45,14 @@ require '../config.php';
          echo "</div>";
       }
       ?>
-      <div class="next_task"><a href="lab2.4.php">Завдання 4</a><br> <br> <a href="/index.php">Головна</a></div>
+      <div class="next_task">
+         <div>
+            <a href="lab2.2.php">
+               << Завдання 2 |</a>
+                  <a href="lab2.4.php">| Завдання 4 >></a>
+         </div>
+         <a href="/index.php">Головна</a>
+      </div>
    </div>
 </body>
 

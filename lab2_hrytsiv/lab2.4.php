@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../config.php';
 ?>
 <!DOCTYPE html>
@@ -13,19 +14,37 @@ require '../config.php';
 </head>
 
 <body>
+   <?php
+   $availableImages = [
+      "capybara" => "Капібари",
+      "catDog" => "Кота з Собакою",
+      "ferret" => "Тхора",
+      "сhinchilla" => "Шиншили",
+   ];
+   $titleAnimals = array_keys($availableImages);
+   $randomImg = array_rand($titleAnimals, 4);
+   shuffle($randomImg);
+   ?>
    <div class="wrapper">
-      <h3>Виберіть, будь ласка, зображення кота разом з собакою</h3>
+      <h3>
+         <?php
+         $randomTitle = $titleAnimals[array_rand($titleAnimals)];
+         $titleAnimal = $availableImages[$randomTitle];
+         echo "Виберіть, будь ласка, зображення {$titleAnimal}";
+         ?>
+      </h3>
       <div class="form_container">
          <form method="post">
             <div class="animal_container">
-               <input type="radio" name="animal" id="catDog" value="catDog">
-               <label for="catDog"><img src="./images/cat-with-dog.jpg" alt="Кіт з Собакою"></label>
-               <input type="radio" name="animal" id="capybara" value="capybara">
-               <label for="capybara"><img src="./images/capybara.jpg" alt="Капібара"></label>
-               <input type="radio" name="animal" id="ferret" value="ferret">
-               <label for="ferret"><img src="./images/ferret.jpg" alt="Тхір"></label>
-               <input type="radio" name="animal" id="сhinchilla" value="сhinchilla">
-               <label for="сhinchilla"><img src="./images/сhinchilla.jpg" alt="Шиншила"></label>
+               <?php
+               foreach ($randomImg as $index) {
+                  $imageName = $titleAnimals[$index];
+                  $imageDescription = $availableImages[$imageName];
+                  echo "<input type='radio' name='animal' id='$imageName' value='$imageName'>";
+                  echo "<label for='$imageName'><img src='./images/$imageName.jpg' alt='$imageDescription'></label>";
+                  unset($availableImages[$imageName]);
+               }
+               ?>
             </div>
             <button type="submit">Перевірити відповідь</button>
          </form>
@@ -34,7 +53,8 @@ require '../config.php';
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
          if (isset($_POST["animal"])) {
             $selectedAnimal = $_POST["animal"];
-            $correctAnswer = "catDog";
+            $correctAnimal = $_SESSION['title'];
+            $selectedAnimalName = $availableImages[$selectedAnimal];
             switch ($selectedAnimal) {
                case "catDog":
                   $selectedAnimalName = "Кота з Собакою";
@@ -51,20 +71,25 @@ require '../config.php';
                default:
                   $selectedAnimalName = "";
             }
-            if ($selectedAnimal === $correctAnswer) {
+            if ($selectedAnimal === $correctAnimal) {
                echo "<p>Правильно! Ви вибрали {$selectedAnimalName}.<p>";
-               echo "<label><img style= \"width: 300px;\" src=\"./images/cat-with-dog.jpg\"></label>";
+               echo "<label><img style= \"width: 300px;\" src=\"./images/catDog.jpg\"></label>";
             } else {
-               echo "<label><img style= \"width: 300px;\" src='./images/{$selectedAnimal}.jpg'></label>";
                echo "<p>Неправильно. Ви вибрали {$selectedAnimalName}.<p>";
+               echo "<label><img style= \"width: 300px;\" src='./images/{$selectedAnimal}.jpg'></label>";
             }
          } else {
             echo "<p>Будь ласка, зробіть вибір.</p>";
-         }
+         };
+         $_SESSION['title'] = $randomTitle;
       }
       ?>
       <div class="next_task">
-         <a href="lab2.5.php">Завдання 5</a><br><br>
+         <div>
+            <a href="lab2.3.php">
+               << Завдання 3 |</a>
+                  <a href="lab2.5.php">| Завдання 5 >></a>
+         </div>
          <a href="/index.php">Головна</a>
       </div>
    </div>
