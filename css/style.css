@@ -128,6 +128,9 @@ input[type="submit"] {
 }
 
 .next_task {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   font-size: 20px;
   margin: 20px 0px;
 }
