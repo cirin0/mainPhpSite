@@ -73,7 +73,7 @@ require '../config.php';
             }
             if ($selectedAnimal === $correctAnimal) {
                echo "<p>Правильно! Ви вибрали {$selectedAnimalName}.<p>";
-               echo "<label><img style= \"width: 300px;\" src=\"./images/catDog.jpg\"></label>";
+               echo "<label><img style= \"width: 300px;\" src='./images/{$selectedAnimal}.jpg'></label>";
             } else {
                echo "<p>Неправильно. Ви вибрали {$selectedAnimalName}.<p>";
                echo "<label><img style= \"width: 300px;\" src='./images/{$selectedAnimal}.jpg'></label>";
