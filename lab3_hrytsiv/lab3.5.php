@@ -18,17 +18,18 @@ include_once 'function.php';
    $arrTask = [2, 4, 3, 7, 12, 10, 14, 9, 45, 23, 58, 61];
    printArray($arrTask);
    echo "</div>";
+   echo "<br>";
    echo "<div>";
-   $a = 15; // Змініть це значення на потрібне вам
-   $array = generateArray($a);
-   printArrayAndMinAndLast($array);
+   echo "<h3>Завдання 5.2</h3>";
+   $a = 4;
+   generateAndGetMin($a);
    echo "</div>";
    ?>
    <div class="next_task">
       <div>
-         <a href="example2.php">
-            << Завдання 2 |</a>
-               <a href="lab3.4.php">| Завдання 4 >></a>
+         <a href="lab3.4.php">
+            << Завдання 4 |</a>
+               <a href="task6.php">| Завдання 6 >></a>
       </div>
       <a href="/index.php">Головна</a>
    </div>

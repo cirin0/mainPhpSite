@@ -34,36 +34,50 @@ function printArray($array)
 {
    echo "<h3>В звичайному порядку</h3>";
    for ($i = 0; $i < count($array); $i++) {
-      echo "Індекс: $i, значення: $array[$i]<br />";
+      echo "Індекс: $i, значення: $array[$i]<br>";
    }
    echo "<h3>В зворотному порядку:</h3>";
    for ($i = count($array) - 1; $i >= 0; $i--) {
-      echo "Індекс: $i, значення: $array[$i]<br />";
+      echo "Індекс: $i, значення: $array[$i]<br>";
    }
 }
 
-function generateArray($a)
+function generateAndGetMin($a)
 {
    $N = ($a % 10 + 1) * 2;
-   $array = array();
+   $array = [];
+   $minValues = [];
+   $lastColumnValues = [];
    for ($i = 0; $i < $N; $i++) {
       for ($j = 0; $j < $N; $j++) {
          $array[$i][$j] = rand(1, 100);
       }
-   }
-   return $array;
-}
-
-function printArrayAndMinAndLast($array)
-{
-   $minValues = array();
-   $lastColumn = array();
-   echo "| ";
-   for ($i = 0; $i < count($array); $i++) {
-      echo implode(' | ', $array[$i]) . " |\n";
       $minValues[] = min($array[$i]);
-      $lastColumn[] = end($array[$i]);
+      $lastColumnValues[] = end($array[$i]);
    }
-   echo "Мінімальні значення рядків: " . implode(' ', $minValues) . "\n";
-   echo "Останній стовпець: " . implode(' ', $lastColumn) . "\n";
+   echo '<table border="1" >';
+   foreach ($array as $row) {
+      echo '<tr>';
+      foreach ($row as $value) {
+         echo '<td>' . $value . '</td>';
+      }
+      echo '</tr>';
+   }
+   echo '</table>';
+   echo 'Мінімальні значення рядків: ' . implode(', ', $minValues) . '<br>';
+   echo 'Числа з останнього стовпця: ' . implode(', ', $lastColumnValues);
+}
+// ****************************************************  //
+
+function generateArrayTask6($n)
+{
+   $numbers = [];
+   for ($i = 1; $i <= $n; $i++) {
+      $numbers[$i] = $i ** 2;
+   }
+   echo "<ul>";
+   foreach ($numbers as $index => $square) {
+      echo "<li>Індекс: $index, квадрат: $square</li>";
+   }
+   echo "</ul>";
 }

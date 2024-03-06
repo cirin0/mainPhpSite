@@ -1,6 +1,11 @@
 .wrapper {
-  margin-top: 20px;
+   margin-top: 20px;
 }
+
 li {
-  margin-bottom: 10px;
+   margin-bottom: 10px;
+}
+
+table {
+   margin: 0 auto;
 }
