@@ -15,7 +15,6 @@ include_once 'function.php';
 <div class="wrapper">
    <?php
    echo "<div>";
-
    echo "<h3>Парні числа від 0 до 20:</h3>";
    for ($i = 0; $i <= 20; $i += 2) {
       echo $i . " ";
@@ -34,7 +33,6 @@ include_once 'function.php';
    $start = 5;
    $end = 20;
    $count = 0;
-
    for ($i = $start; $i <= $end; $i++) {
       $fibNumber = fibonacci($i);
       echo "Член $i ряду Фібоначчі: $fibNumber" . "<br>";
