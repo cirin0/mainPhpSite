@@ -2,7 +2,7 @@
 require '../config.php';
 include_once '../function.php';
 ?>
-<html>
+<html lang="uk">
 <title>My JS + Jquery</title>
 
 <body>

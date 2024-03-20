@@ -1,10 +1,11 @@
 <?php
+global $db_server;
 require '../config.php';
 
 // mysqli_query($db_server, "drop table user");
 
-mysqli_query($db_server, "CREATE TABLE IF NOT EXISTS user(id INTEGER PRIMARY KEY AUTO_INCREMENT, 
-        age INTEGER, login VARCHAR(250) UNIQUE, password VARCHAR(100))");
+mysqli_query($db_server, "CREATE TABLE IFNOT EXISTS user(id INTEGER PRIMARY KEY AUTO_INCREMENT,
+         age INTEGER, login VARCHAR(250) UNIQUE, password VARCHAR(100))");
 
 if (isset($_POST["age"], $_POST["login"], $_POST["password"])) {
    $age = $_POST["age"];
@@ -18,7 +19,7 @@ if (isset($_POST["age"], $_POST["login"], $_POST["password"])) {
 
 ?>
 
-<html>
+<html lang="uk">
 
 <head>
    <title>LAB DB - TASK 4</title>

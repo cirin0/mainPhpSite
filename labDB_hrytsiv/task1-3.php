@@ -1,4 +1,5 @@
 <?php
+global $db_server;
 require '../config.php';
 
 mysqli_query($db_server, "drop table dusc");
@@ -10,7 +11,7 @@ mysqli_query($db_server, "insert into dusc (name_d, key_concept) values ('AI','M
 # <head> <title>LAB_DB TASK 1-3 </title></head>
 ?>
 
-<html>
+<html lang="uk">
 
 <body>
    <table border="2">

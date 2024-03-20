@@ -2,7 +2,7 @@
 require '../config.php';
 ?>
 
-<html>
+<html lang="uk">
 
 <head>
    <title>lab_DB</title>
