@@ -27,7 +27,9 @@ require '../components/header.php';
          echo "<p>Час створення: " . date("Y-m-d H:i:s", filectime($filename)) . "</p>";
          echo "<p>Час останньої модифікації: " . date("Y-m-d H:i:s", filemtime($filename)) . "</p>";
          echo "<p>Вміст файла:</p>";
+         echo '<div style = "max-width: 50%; margin:auto">';
          echo file_get_contents($filename);
+         echo "</div>";
       } else {
          echo "<p>Файл з іменем \"$filename\" у поточному каталозі не існує.</p>";
       }

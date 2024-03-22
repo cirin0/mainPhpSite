@@ -76,7 +76,8 @@ require '../components/header.php';
 </div>
 <br>
 <div>
-   /<h3>Завантаження файлу</h3>
+   <h3>Завантаження файлу</h3>
+   <a href="upload.php">Приклад</a>
 </div>
 
 <div class="next_task">

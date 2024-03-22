@@ -94,9 +94,14 @@ function replaceSmallOsWithBigOs($filename)
    }
 }
 
-function randParagraph($filename)
+function randParagraph($filename): void
 {
    $lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
    $randIndex = rand(0, count($lines) - 1);
    echo $lines[$randIndex];
 }
+
+
+$text5 = "PHP не підтримує беззнакові цілі числа. Дійсні числа із плаваючою крапкою можуть бути подані в десятковій або експоненційній формі. Рядки розділяють на два класи — рядки, що підлягають аналізу, та рядки, що не підлягають аналізу.";
+
+$text6 = "PHP надає широкий спектр функцій для пошуку та заміни тексту в рядках. Для цього використовують як традиційний підхід, так і спеціальний підхід, що базується на використанні регулярних виразів.";
