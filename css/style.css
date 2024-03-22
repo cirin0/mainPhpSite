@@ -1,21 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Open+Sans:wght@400;700&display=swap");
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
 html,
 body {
-  font-family: "IBM Plex Sans", sans-serif;
-  overflow-x: hidden;
+   font-family: "IBM Plex Sans", sans-serif;
+   overflow-x: hidden;
 }
 
 h2,
 h3 {
-  text-align: center;
-  margin: 10px 0px;
+   text-align: center;
+   margin: 10px 0px;
 }
+
 /* h3 {
   color: rgb(138, 7, 72);
 }
@@ -23,123 +25,135 @@ h2 {
   color: #47026e;
 } */
 */ .hover {
-  color: rgb(15, 238, 52);
-  font-size: larger;
+   color: rgb(15, 238, 52);
+   font-size: larger;
 }
+
 .hover1 {
-  color: rgb(230, 24, 151);
-  font-size: larger;
+   color: rgb(230, 24, 151);
+   font-size: larger;
 }
+
 a {
-  text-decoration: none;
+   text-decoration: none;
 }
+
 .list {
-  height: 40%;
+   height: 40%;
 }
+
 /* .back {
   text-align: right;
 } */
 img {
-  width: 40%;
+   width: 40%;
 }
+
 tr {
-  text-align: left;
+   text-align: left;
 }
 
 #main {
-  color: rgb(241, 19, 19);
-  font-size: 100 pt;
-  text-align: right;
+   color: rgb(241, 19, 19);
+   font-size: 100 pt;
+   text-align: right;
 }
+
 /*p{color:blue;}
 .selected{color:#c16af5;}*/
 
 /* ******************************************************* */
 
 .wrapper {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 15px;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 0px 15px;
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: center;
-  margin-bottom: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   text-align: center;
+   margin-bottom: 20px;
 }
 
 .list a {
-  color: #000;
-  text-decoration: underline;
+   color: #000;
+   text-decoration: underline;
 }
 
 .list a:hover {
-  font-size: 18px;
+   font-size: 18px;
 }
+
 
 /* ******************************************************* */
 
 .form_container {
-  margin: 0 auto;
-  padding: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  min-width: 275px;
-  margin-bottom: 10px;
+   margin: 0 auto;
+   padding: 15px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   margin-top: 20px;
+   min-width: 275px;
+   margin-bottom: 10px;
 }
 
 .form_container form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 }
+
 input[type="text"],
 input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 5px;
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 15px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+   margin-top: 5px;
 }
+
 button[type="submit"],
 input[type="submit"] {
-  padding: 10px 20px;
-  background-color: #38853b;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+   padding: 10px 20px;
+   background-color: #38853b;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
 }
+
 .form_center {
-  margin-top: 10px;
-  text-align: center;
+   margin-top: 10px;
+   text-align: center;
 }
 
 .tasks {
-  display: flex;
+   display: flex;
 }
 
 .next_task {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  font-size: 20px;
-  margin: 20px 0px;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+   font-size: 20px;
+   margin: 20px 0px;
 }
+
 /* ******************************************************* */
 /* модифікатор для форми */
 .form_main {
-  margin-bottom: 20px;
+   margin-bottom: 20px;
 }
+
 /* ******************************************************* */
 select {
-  font-size: 16px;
+   font-size: 16px;
 }
