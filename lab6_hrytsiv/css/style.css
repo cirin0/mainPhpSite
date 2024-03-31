@@ -1,0 +1,11 @@
+.error {
+   color: red;
+   text-decoration: underline;
+   margin: -14px 0px 0px 175px;
+}
+
+.valid {
+   color: green;
+   text-decoration: underline;
+   margin: -14px 0px 0px 200px;
+}
