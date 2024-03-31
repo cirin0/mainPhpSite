@@ -7,7 +7,10 @@
    <link rel="shortcut icon" type="image/x-icon" href="/favico.ico">
    <link href="/css/style.css" rel="stylesheet">
    <link href="./css/style.css" rel="stylesheet">
-   <title>Лабораторна робота №4</title>
+   <title>
+      <?php global $title;
+      echo $title ?>
+   </title>
 </head>
 
 <body>
