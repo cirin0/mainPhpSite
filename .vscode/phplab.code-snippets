@@ -1,10 +1,10 @@
 {
-	// Place your mainPhpSite workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
-	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
-	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
-	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
-	// Placeholders with the same ids are connected.
+	// Розмістіть тут свої фрагменти робочої області головногофппситу.Кожен фрагмент визначається під назвою фрагмента і має обсяг, префікс, тіло та
+// опис.Додайте розділені комами ідентифікаторів мов, де фрагмент застосовується в полі обсягу.Якщо обсяг
+// залишається порожнім або опущеним, фрагмент застосовується до всіх мов.Префікс - це те, що є
+// використовується для запуску фрагмента, і тіло буде розширено та вставлено.Можливі змінні:
+// $ 1, $ 2 за зупинки вкладки, $ 0 за остаточну позицію курсору та $ {1: Label}, $ {2: Інший} для заповнювачів.
+// заповнювачі з однаковими ідентифікаторами підключені.
 	// Example:
 	// "Print to console": {
 	// 	"scope": "javascript,typescript",
@@ -28,9 +28,9 @@
       "body": [
          "<div class=\"next_task\">",
          "<div>",
-         "<a href=\"lab5.3.php\">",
-         "<< Завдання 3 |</a>",
-         "<a href=\"lab5.5.php\">| Завдання 5 >></a>",
+         "<a href=\"lab$1.php\">",
+         "<< Завдання $2 |</a>",
+         "<a href=\"lab$3.php\">| Завдання $4 >></a>",
          "</div>",
          "<a href=\"/index.php\">Головна</a>",
          "</div>"
@@ -49,15 +49,16 @@
       "prefix": "fstart",
       "body": [
          "<?php",
+         "$$title = \"Лабораторна робота №$2\";",
          "require '../components/header.php';",
          "?>",
-         "<h2>$3</h2>",
+         "<h2>$5</h2>",
          "$0",
          "<div class=\"next_task\">",
          "<div>",
-         "<a href=\"lab5.$1.php\">",
+         "<a href=\"lab$2.$1.php\">",
          "<< Завдання $1 |</a>",
-         "<a href=\"lab5.$2.php\">| Завдання $2 >></a>",
+         "<a href=\"lab$4.$3.php\">| Завдання $3 >></a>",
          "</div>",
          "<a href=\"/index.php\">Головна</a>",
          "</div>",
