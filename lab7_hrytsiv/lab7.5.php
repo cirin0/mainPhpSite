@@ -4,18 +4,15 @@ require '../components/header.php';
 ?>
 <h2>Завдання 5</h2>
 <?php
-// Оголошення класу MultiplicationTable
 class MultiplicationTable
 {
-   private $number; // Число для якого буде створена таблиця
+   private $number;
 
-   // Конструктор класу для задання числа
    public function __construct($number)
    {
       $this->number = $number;
    }
 
-   // Метод для обчислення та виведення таблиці множення
    public function generateTable()
    {
       echo "<h3>Таблиця множення для числа {$this->number}</h3>";
@@ -27,7 +24,6 @@ class MultiplicationTable
    }
 }
 
-// Створення об'єктів класу MultiplicationTable та виведення таблиць множення
 $number1Table = new MultiplicationTable(3);
 $number1Table->generateTable();
 

@@ -4,14 +4,12 @@ require '../components/header.php';
 ?>
 <h2>Завдання 3</h2>
 <?php
-// Оголошення класу Student
 class Student
 {
    public $name;
    public $surname;
    public $group;
 
-   // Конструктор класу для задання початкових значень властивостям при створенні об'єкта
    public function __construct($name = '', $surname = '', $group = '')
    {
       $this->name = $name;
@@ -19,19 +17,16 @@ class Student
       $this->group = $group;
    }
 
-   // Метод для виведення інформації про об'єкт
    public function getInfo()
    {
       echo "Ім'я: {$this->name}, Прізвище: {$this->surname}, Група: {$this->group}<br>";
    }
 }
 
-// Створення трьох об'єктів класу Student через конструктор
 $student1 = new Student('Микола', 'Шевченко', 'Група ІП-71');
 $student2 = new Student('Марія', 'Франко', 'Група ФІ-72');
 $student3 = new Student('Олександер', 'Левицький', 'Група ФФ-73');
 
-// Створення ще трьох об'єктів класу Student без конструктора
 $student4 = new Student();
 $student4->name = 'Анна';
 $student4->surname = 'Коваленко';

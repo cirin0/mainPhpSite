@@ -4,21 +4,18 @@ require '../components/header.php';
 ?>
 <h2>Завдання 1, 2</h2>
 <?php
-// Оголошення класу Student
 class Student
 {
    public $name;
    public $surname;
    public $group;
 
-   // Конструктор класу
    public function __construct($name, $surname, $group)
    {
       $this->name = $name;
       $this->surname = $surname;
       $this->group = $group;
    }
-   // метод getInfo()
    public function getInfo()
    {
       echo "Ім'я: {$this->name}, Прізвище: {$this->surname}, Група: {$this->group}<br>";
@@ -34,7 +31,7 @@ echo "Студент 1: {$student1->name} {$student1->surname}, Група: {$st
 echo "Студент 2: {$student2->name} {$student2->surname}, Група: {$student2->group}<br>";
 echo "Студент 3: {$student3->name} {$student3->surname}, Група: {$student3->group}<br>";
 echo "<br>";
-// Виклик методу getInfo()
+
 echo "<b>Інформація про студентів:</b>";
 $student1->getInfo();
 $student2->getInfo();

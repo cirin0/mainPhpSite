@@ -4,7 +4,6 @@ require '../components/header.php';
 ?>
 <h2>Завдання 4</h2>
 <?php
-// Оголошення класу Student
 class Student
 {
    public $name;
