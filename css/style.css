@@ -89,6 +89,9 @@ tr {
    font-size: 18px;
 }
 
+td {
+   padding: 5px;
+}
 
 /* ******************************************************* */
 
@@ -111,7 +114,8 @@ tr {
 
 input[type="text"],
 input[type="password"],
-input[type="email"] {
+input[type="email"],
+input[type="number"] {
    width: 100%;
    padding: 10px;
    margin-bottom: 15px;
