@@ -49,9 +49,9 @@ img {
    width: 40%;
 }
 
-tr {
+/* tr {
    text-align: left;
-}
+} */
 
 #main {
    color: rgb(241, 19, 19);
@@ -89,7 +89,8 @@ tr {
    font-size: 18px;
 }
 
-td {
+td,
+th {
    padding: 5px;
 }
 
