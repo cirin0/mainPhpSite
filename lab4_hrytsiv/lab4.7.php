@@ -16,17 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       echo "<h3>Запитання 1: Який ваш улюблений кольор?</h3>";
       echo "Ваша відповідь: <b>$color</b><br>";
-
       echo "<h3>Запитання 2: Виберіть вашу вікову категорію</h3>";
       echo "Ваша відповідь: <b>$age</b><br>";
-
       echo "<h3>Запитання 3: Оберіть вашу улюблену мову програмування</h3>";
       echo "Ваша відповідь:";
       foreach ($languages as $language) {
          echo "<b>$language</b> ";
       }
       echo "<br>";
-
       echo "<h3>Запитання 4: Як ви вважаєте, що є основною перевагою використання PHP?</h3>";
       echo "Ваша відповідь: <b>$advantage</b><br>";
    } else {
@@ -54,7 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <option value="Більше 50 років">Більше 50 років</option>
          </select>
       </div>
-
       <h3>Запитання 3: Оберіть вашу улюблену мову програмування (можна обрати більше одного варіанту)</h3>
       <div>
          <input type="checkbox" id="lang1" name="languages[]" value="PHP">
@@ -64,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <input type="checkbox" id="lang3" name="languages[]" value="Python">
          <label for="lang3">Python</label>
       </div>
-
       <h3>Запитання 4: Як ви вважаєте, що є основною перевагою використання PHP?</h3>
       <div>
          <input type="radio" id="advantage1" name="advantage" value="Простота вивчення">
@@ -74,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <input type="radio" id="advantage3" name="advantage" value="Швидкодія">
          <label for="advantage3">Швидкодія</label>
       </div>
-
       <br><input type="submit" value="Готово">
    </form>
 </div>
@@ -82,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <div>
       <a href="lab4.6.php">
          << Завдання 6 |</a>
-            <a href="lab4..php">| Завдання >></a>
    </div>
    <a href="/index.php">Головна</a>
 </div>
