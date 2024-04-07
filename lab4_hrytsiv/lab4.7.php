@@ -3,6 +3,37 @@ $title = "Лабораторна робота №4";
 require '../components/header.php';
 ?>
 <h2>Завдання 7</h2>
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   if (
+      isset($_POST['color']) && isset($_POST['age']) &&
+      isset($_POST['languages']) && isset($_POST['advantage'])
+   ) {
+      $color = $_POST['color'];
+      $age = $_POST['age'];
+      $languages = $_POST['languages'];
+      $advantage = $_POST['advantage'];
+
+      echo "<h3>Запитання 1: Який ваш улюблений кольор?</h3>";
+      echo "Ваша відповідь: <b>$color</b><br>";
+
+      echo "<h3>Запитання 2: Виберіть вашу вікову категорію</h3>";
+      echo "Ваша відповідь: <b>$age</b><br>";
+
+      echo "<h3>Запитання 3: Оберіть вашу улюблену мову програмування</h3>";
+      echo "Ваша відповідь:";
+      foreach ($languages as $language) {
+         echo "<b>$language</b> ";
+      }
+      echo "<br>";
+
+      echo "<h3>Запитання 4: Як ви вважаєте, що є основною перевагою використання PHP?</h3>";
+      echo "Ваша відповідь: <b>$advantage</b><br>";
+   } else {
+      echo "Будь ласка, заповніть всі поля форми.";
+   }
+}
+?>
 <div class="form_container">
    <form class="limit" method="post">
       <h3>Запитання 1: Який ваш улюблений колір?</h3>
@@ -47,38 +78,6 @@ require '../components/header.php';
       <br><input type="submit" value="Готово">
    </form>
 </div>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   if (
-      isset($_POST['color']) && isset($_POST['age']) &&
-      isset($_POST['languages']) && isset($_POST['advantage'])
-   ) {
-      $color = $_POST['color'];
-      $age = $_POST['age'];
-      $languages = $_POST['languages'];
-      $advantage = $_POST['advantage'];
-
-      echo "<h3>Запитання 1: Який ваш улюблений кольор?</h3>";
-      echo "Ваша відповідь: <b>$color</b><br>";
-
-      echo "<h3>Запитання 2: Виберіть вашу вікову категорію</h3>";
-      echo "Ваша відповідь: <b>$age</b><br>";
-
-      echo "<h3>Запитання 3: Оберіть вашу улюблену мову програмування</h3>";
-      echo "Ваша відповідь:";
-      foreach ($languages as $language) {
-         echo "<b>$language</b> ";
-      }
-      echo "<br>";
-
-      echo "<h3>Запитання 4: Як ви вважаєте, що є основною перевагою використання PHP?</h3>";
-      echo "Ваша відповідь: <b>$advantage</b><br>";
-   } else {
-      echo "Будь ласка, заповніть всі поля форми.";
-   }
-}
-?>
-
 <div class="next_task">
    <div>
       <a href="lab4.6.php">
