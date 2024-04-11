@@ -1,18 +1,13 @@
 <?php
+$db_name = 'if0_35935799_hrytsiv_db';
+$db_host = 'sql313.infinityfree.com';
+$db_user = 'if0_35935799';
+$db_pass = 'VK77DjHWEneB';
 
-//тут вкажіть свої дані:
-$db_name	= 'your_db_name';
-$db_host	= 'your_host';
-$db_user	= 'your_db_user';
-$db_pass	= 'your_password';
+$db_server = new mysqli("$db_host", "$db_user", "$db_pass", "$db_name");
+if (!$db_server)
+   die("db.php: Error connect to db_server = $db_host, $db_user, $db_name" . "<br>");
 
-
-$db_server = mysqli_connect("$db_host", "$db_user", "$db_pass", "$db_name");
-if (!$db_server) 
-        die ("db.php: Error connect to db_server = $db_host, $db_user, $db_name <br>"); 
-
-if ($db_server) {echo "db.php: good connect to db_server = $db_host, $db_user, $db_name <br>";}
-
-#mysqli_query('SET NAMES utf8');
-
-?>
+if ($db_server) {
+   echo "db.php: good connect to db_server = $db_host, $db_user, $db_name" . "<br>";
+}
