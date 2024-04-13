@@ -1,8 +1,8 @@
 <?php
 $title = "Лабораторна робота №8";
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 ?>
 <h2>Завдання 5</h2>
 <?php
@@ -24,10 +24,10 @@ VALUES
 ('Опеньки', 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mellea_ua.jpg', 12.00, 120)";
 
 if ($db_server->query($sqlCreateTable) === FALSE) {
-   echo "Помилка створення таблиці: " . $conn->error;
+   echo "Помилка створення таблиці: " . $db_server->error;
 }
 // mysqli_query($db_server, $sqlDropTable);
-// mysqli_query($db_server, $sql_insert_data);
+mysqli_query($db_server, $sqlInsertData);
 
 $sql_select_data = "SELECT * FROM warehouse";
 $result = $db_server->query($sql_select_data);
@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
       echo "<tr>";
       echo "<td><a href='product_details.php?id=" . $row['id'] . "'>" . $row['name'] . "</a></td>";
       echo "<td><a href='product_details.php?id=" . $row['id'] . "'><img src='" . $row['image'] . "' alt='" . $row['name'] . "' width='250px'></a></td>";
-      echo "<td>" . $row['price'] . "</td>";
+      echo "<td>" . $row['price'] . ' грн.' . "</td>";
       echo "<td>" . $row['quantity'] . "</td>";
       echo "</tr>";
    }

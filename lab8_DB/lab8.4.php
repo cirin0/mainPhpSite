@@ -1,7 +1,7 @@
 <?php
 $title = "Лабораторна робота №8";
-// include_once '../db.php';
-include_once '../db copy.php';
+include_once '../db.php';
+// include_once '../db copy.php';
 require_once '../components/header.php';
 ?>
 <h2>LAB DB - TASK 4</h2>
