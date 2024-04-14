@@ -1,29 +1,40 @@
 <?php
 $title = "Лабораторна робота №8";
 require '../components/header.php';
-// include_once '../db copy.php';
 include_once '../db.php';
+// include_once '../db copy.php';
 ?>
 <!-- <h2>Завдання </h2> -->
 <?php
 
 if (isset($_GET['id'])) {
-   $product_id = $_GET['id'];
-   $sql_select_product = "SELECT * FROM warehouse WHERE id = $product_id";
-   $result_product = $db_server->query($sql_select_product);
+   $productId = $_GET['id'];
+   $sqlSelectProduct = "SELECT * FROM warehouse WHERE id = $productId";
+   $resultProduct = $db_server->query($sqlSelectProduct);
 
-   if ($result_product->num_rows > 0) {
-      $row_product = $result_product->fetch_assoc();
-      echo "<h2>Детальна інформація про товар: " . $row_product['name'] . "</h2>";
-      echo "<img src='" . $row_product['image'] . "' alt='" . $row_product['name'] . "' width='200px'><br>";
-      echo "<p>Ціна за одиницю товару: ₴ " . $row_product['price'] . "</p>";
-      echo "<p>Наявна кількість: " . $row_product['quantity'] . "</p>";
+   if ($resultProduct->num_rows > 0) {
+      $rowProduct = $resultProduct->fetch_assoc();
+      echo "<h2>Детальна інформація про товар: " . $rowProduct['name'] . "</h2>";
+      echo "<img src='" . $rowProduct['image'] . "' alt='" . $rowProduct['name'] . "' width='250px'><br>";
+      echo "<p>Ціна за одиницю товару: ₴ " . $rowProduct['price'] . "</p>";
+      echo "<p>Наявна кількість: " . $rowProduct['quantity'] . "</p>";
+
+      echo "<div class='form_container'>";
+
       echo "<form action='buy_product.php' method='POST'>";
-      echo "<input type='hidden' name='product_id' value='" . $row_product['id'] . "'>";
+      echo "<input type='hidden' name='productId' value='" . $rowProduct['id'] . "'>";
       echo "<label for='quantity'>Кількість:</label>";
-      echo "<input type='number' id='quantity' name='quantity' min='1' max='" . $row_product['quantity'] . "' value='1'>";
+      echo "<input type='number' id='quantity' name='quantity' min='1' max='" . $rowProduct['quantity'] . "' value='1'>";
       echo "<input type='submit' value='Купити'>";
       echo "</form>";
+
+      echo "<form action='restock_product.php' method='POST'>";
+      echo "<input type='hidden' name='productId' value='" . $rowProduct['id'] . "'>";
+      echo "<label for='restock'>Поповнити склад:</label>";
+      echo "<input type='number' id='restock' name='restock' min='1' value='1'>";
+      echo "<input type='submit' value='Поповнити'>";
+      echo "</form>";
+      echo "</div>";
    } else {
       echo "Товар не знайдено";
    }
@@ -35,7 +46,6 @@ if (isset($_GET['id'])) {
    <div>
       <a href="lab8.5.php">Назад</a>
    </div>
-   <a href="/index.php">Головна</a>
 </div>
 <?php
 require '../components/footer.php';

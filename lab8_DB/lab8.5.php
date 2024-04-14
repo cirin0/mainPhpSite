@@ -1,8 +1,8 @@
 <?php
 $title = "Лабораторна робота №8";
 require '../components/header.php';
-// include_once '../db copy.php';
 include_once '../db.php';
+// include_once '../db copy.php';
 ?>
 <h2>Завдання 5</h2>
 <?php
@@ -18,7 +18,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS warehouse (
 
 $sqlInsertData = "INSERT INTO warehouse (name, image, price, quantity)
 VALUES 
-('Білий гриб', 'https://www.arktisetaromit.fi/binary/file/-/fid/3323', 10.50, 100),
+('Білий гриб', 'https://rivne1.tv/pics2/2005/i113986.jpg?1590575082', 10.50, 100),
 ('Печериця', 'https://cdn.27.ua/799/62/1c/3629596_6.jpeg', 15.75, 50),
 ('Лисичка', 'https://www.arktisetaromit.fi/binary/file/-/fid/3323', 8.25, 80),
 ('Опеньки', 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Mellea_ua.jpg', 12.00, 120)";
@@ -27,10 +27,10 @@ if ($db_server->query($sqlCreateTable) === FALSE) {
    echo "Помилка створення таблиці: " . $db_server->error;
 }
 // mysqli_query($db_server, $sqlDropTable);
-mysqli_query($db_server, $sqlInsertData);
+// mysqli_query($db_server, $sqlInsertData);
 
-$sql_select_data = "SELECT * FROM warehouse";
-$result = $db_server->query($sql_select_data);
+$sqlSelectData = "SELECT * FROM warehouse";
+$result = $db_server->query($sqlSelectData);
 
 if ($result->num_rows > 0) {
    echo "<table border='1'>";
@@ -53,7 +53,6 @@ $db_server->close();
    <div>
       <a href="lab8.4.php">
          << Завдання 4 |</a>
-            <a href="lab8.6.php">| Завдання 6 >></a>
    </div>
    <a href="/index.php">Головна</a>
 </div>
