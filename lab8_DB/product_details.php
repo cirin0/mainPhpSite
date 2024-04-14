@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
       echo "<p>Ціна за одиницю товару: ₴ " . $rowProduct['price'] . "</p>";
       echo "<p>Наявна кількість: " . $rowProduct['quantity'] . "</p>";
 
-      echo "<div class='form_container'>";
+      echo "<div class='form_container form_products'>";
 
       echo "<form action='buy_product.php' method='POST'>";
       echo "<input type='hidden' name='productId' value='" . $rowProduct['id'] . "'>";

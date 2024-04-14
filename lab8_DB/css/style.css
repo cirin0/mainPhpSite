@@ -7,10 +7,10 @@
    min-width: 275px;
 }
 
-.form_container {
+.form_products {
    display: flex;
 }
 
-form {
+.form_products form {
    padding: 15px;
 }

@@ -1,8 +1,8 @@
 <?php
 $title = "Лабораторна робота №8";
-// include_once '../db.php';
-include_once '../db copy.php';
 require_once '../components/header.php';
+include_once '../db.php';
+// include_once '../db copy.php';
 ?>
 <h2>Завдання 1-3</h2>
 <?php

@@ -1,8 +1,8 @@
 <?php
 $title = "Лабораторна робота №8";
+require_once '../components/header.php';
 include_once '../db.php';
 // include_once '../db copy.php';
-require_once '../components/header.php';
 ?>
 <h2>LAB DB - TASK 4</h2>
 <?php
@@ -11,7 +11,7 @@ $sql1 = "create table if not exists users(id integer primary key auto_increment,
 $sql2 = "insert into users (age, login, password) values (?, ?, ?)";
 
 // mysqli_query($db_server, $sql);
-mysqli_query($db_server, $sql1);
+// mysqli_query($db_server, $sql1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $age = $_POST["age"];
