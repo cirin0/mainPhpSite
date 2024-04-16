@@ -5,6 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="/css/style.css" rel="stylesheet">
+   <script src="/js/searсh.js"></script>
    <link rel="shortcut icon" type="image/x-icon" href="./favico.ico">
    <title>My PHP</title>
 </head>
@@ -34,6 +35,13 @@
             </table>
          </form>
       </div>
+      <div class="form_container form_search">
+         <form id="searchForm">
+            <label for="searchInput">Пошук</label>
+            <input type="text" id="searchInput" oninput="searchTitle()">
+            <ul id="searchResults"></ul>
+         </form>
+      </div>
       <?php
       $zm = 10;
       echo "<h1>Програмування мовою PHP</h1>
@@ -48,6 +56,7 @@
       <a href=lab6_hrytsiv/lab6.php>lab6.php</a>
       <a href=lab7_hrytsiv/lab7.php>lab7.php</a>
       <a href=lab8_DB/lab8.1-3.php>PHP+Lab8DB</a>
+      <a href=lab9_hrytsiv/lab9.php>lab9.php</a>
       <a href=labJS_hrytsiv/labJS.php>PHP+JS</a>";
       echo "</div>";
       echo "zm=$zm <br>";

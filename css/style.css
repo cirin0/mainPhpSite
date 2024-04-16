@@ -163,3 +163,46 @@ input[type="submit"] {
 select {
    font-size: 16px;
 }
+
+/* ******************************************************* */
+#searchResults {
+   border-radius: 5px;
+   position: absolute;
+   width: 110%;
+   top: 70%;
+   /*   left: 0;*/
+   background-color: white;
+   border: 1px solid #ccc;
+   display: none;
+   list-style: none;
+   /*   padding: 5px;*/
+   max-height: 150px;
+   overflow: hidden;
+   overflow-y: scroll;
+}
+
+#searchResults::-webkit-scrollbar {
+   width: 0;
+}
+
+#searchResults li {
+   /*   padding: 5px;*/
+   cursor: pointer;
+}
+
+.form_search {
+   position: relative;
+}
+
+li {
+   margin-bottom: 3px;
+   padding: 3px;
+}
+
+a {
+   color: black;
+}
+
+li:hover {
+   background-color: lightcyan;
+}
