@@ -38,7 +38,7 @@
       <div class="form_container form_search">
          <form id="searchForm">
             <label for="searchInput">Пошук</label>
-            <input type="text" id="searchInput" oninput="searchTitle()">
+            <input type="text" id="searchInput" placeholder="Номер завдання чи лабораторної" oninput="searchTitle()">
             <ul id="searchResults"></ul>
          </form>
       </div>

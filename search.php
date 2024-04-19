@@ -1,16 +1,16 @@
 <?php
-include_once 'db copy.php';
-global $db_server;
+// include_once 'db copy.php';
+// global $db_server;
 
-// $db_name = 'if0_35935799_hrytsiv_db';
-// $db_host = 'sql313.infinityfree.com';
-// $db_user = 'if0_35935799';
-// $db_pass = 'VK77DjHWEneB';
+$db_name = 'if0_35935799_hrytsiv_db';
+$db_host = 'sql313.infinityfree.com';
+$db_user = 'if0_35935799';
+$db_pass = 'VK77DjHWEneB';
 
-$db_name = 'hrytsivdb';
-$db_host = '127.0.0.1';
-$db_user = 'cirin';
-$db_pass = 'Q20012004q';
+// $db_name = 'hrytsivdb';
+// $db_host = '127.0.0.1';
+// $db_user = 'cirin';
+// $db_pass = 'Q20012004q';
 
 $db_server = new mysqli("$db_host", "$db_user", "$db_pass", "$db_name");
 
