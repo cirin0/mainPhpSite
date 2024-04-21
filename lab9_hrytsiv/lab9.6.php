@@ -32,8 +32,6 @@ mysqli_close($db_server);
       <input type="text" id="title" name="title" required>
       <label for="content">Контент:</label>
       <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
-      <!-- <label for="date_published">Дата публікації:</label> -->
-      <!-- <input type="date" id="date_published" name="date_published" required> -->
       <input type="submit" value="Додати новину">
    </form>
 </div>

@@ -8,7 +8,6 @@ $db_server->set_charset("utf8");
 ?>
 <h2>Завдання 1-2</h2>
 <?php
-// $db_server->set_charset("utf8");
 $file = "./files/mynews.txt";
 
 $fdataMy = fopen($file, "r") or die("Не вдалося відкрити файл");
@@ -29,11 +28,7 @@ foreach ($mas as $record) {
       'content' => $content,
       'date_published' => $date_published
    ];
-
-   // Виконуємо запит до бази даних
    $sql = "INSERT INTO hrytsiv_news (topic, title, content, date_published) VALUES ('$topic', '$title', '$content', '$date_published')";
-
-   // Перед виконанням цього запиту переконайтесь, що $db_server вказує на з'єднання з базою даних
    // mysqli_query($db_server, $sql);
 }
 
@@ -61,6 +56,7 @@ if ($resultCheck > 0) {
 }
 echo "</table>";
 
+mysqli_close($db_server);
 fclose($fdataMy);
 ?>
 <div class="next_task">

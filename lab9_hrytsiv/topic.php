@@ -29,6 +29,7 @@ if (isset($_GET['topic']) && !empty($_GET['topic'])) {
 } else {
    echo "Тематика не вказана";
 }
+mysqli_close($db_server);
 ?>
 <div class="next_task">
    <div>

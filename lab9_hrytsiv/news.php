@@ -8,7 +8,6 @@ $db_server->set_charset("utf8");
 ?>
 <h2>Новини</h2>
 <?php
-
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
    $newsId = $_GET['id'];
    $sqlSelectOne = "SELECT * FROM hrytsiv_news WHERE id = $newsId";
@@ -27,6 +26,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       echo "Новину не знайдено";
    }
 }
+mysqli_close($db_server);
 ?>
 <div class="next_task">
    <div>

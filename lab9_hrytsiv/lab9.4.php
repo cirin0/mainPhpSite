@@ -36,7 +36,7 @@ $totalNews = mysqli_num_rows(mysqli_query($db_server, "SELECT * FROM hrytsiv_new
 
 file_put_contents("./files/out.txt", "Загальна кількість новин: " . $totalNews);
 
-$db_server->close();
+mysqli_close($db_server);
 ?>
 <div class="next_task">
    <div>
