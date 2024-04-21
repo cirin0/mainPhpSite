@@ -6,9 +6,8 @@ include_once '../components/header.php';
 include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
-<h2>Завдання 1-2</h2>
+<h2>Завдання 3</h2>
 <?php
-// $db_server->set_charset("utf8");
 $file = "./files/mynews.txt";
 
 $fdataMy = fopen($file, "r") or die("Не вдалося відкрити файл");
@@ -36,7 +35,6 @@ foreach ($mas as $record) {
    // Перед виконанням цього запиту переконайтесь, що $db_server вказує на з'єднання з базою даних
    // mysqli_query($db_server, $sql);
 }
-
 $sqlDrop = "DROP TABLE hrytsiv_news";
 $sqlCreate = "CREATE TABLE hrytsiv_news (
    id INT(6) AUTO_INCREMENT PRIMARY KEY,
@@ -44,28 +42,34 @@ $sqlCreate = "CREATE TABLE hrytsiv_news (
    title VARCHAR(255) UNIQUE,
    content TEXT NOT NULL,
    date_published VARCHAR(255) NOT NULL
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
+)";
 
 // mysqli_query($db_server, $sqlDrop);
 // mysqli_query($db_server, $sqlCreate);
 
-$sqlSelect = "SELECT * FROM hrytsiv_news";
+$idList = [9, 10, 11, 12];
+$idsStr = implode(",", $idList);
+
+$sqlSelect = "SELECT * FROM hrytsiv_news WHERE id IN ($idsStr)";
+
 $result = mysqli_query($db_server, $sqlSelect);
-$resultCheck = mysqli_num_rows($result);
+// $resultCheck = mysqli_num_rows($result);
 echo "<table border='1'>";
 echo "<tr><th>Topic</th><th>Title</th><th>Content</th><th>Date Published</th></tr>";
-if ($resultCheck > 0) {
-   while ($row = mysqli_fetch_assoc($result)) {
-      echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td>" . $row['content'] . "</td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
-   }
+while ($row = mysqli_fetch_assoc($result)) {
+   echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td>" . $row['content'] . "</td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
 }
 echo "</table>";
+
+mysqli_close($db_server);
 
 fclose($fdataMy);
 ?>
 <div class="next_task">
    <div>
-      <a href="lab9.3.php">| Завдання 3>></a>
+      <a href="lab9.php">
+         << Завдання 1-2 |</a>
+            <a href="lab9.4.php">| Завдання 4>></a>
    </div>
    <a href="/index.php">Головна</a>
 </div>

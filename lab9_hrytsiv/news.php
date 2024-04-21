@@ -1,50 +1,38 @@
 <?php
-$title = "Лабораторна робота 8№";
+$title = "Лабораторна робота №9";
+global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
-<h2>Завдання </h2>
+<h2>Новини</h2>
 <?php
-// news.php
 
-$newsId = $_GET['id'];
-$sqlSelectOne = "SELECT * FROM hrytsiv_news WHERE id = $newsId";
-$resultOne = mysqli_query($db_server, $sqlSelectOne);
-$selectedNews = mysqli_fetch_assoc($resultOne);
-
-// $newsId = $_GET['id']; // Отримуємо id новини з параметру URL
-
-// Перевірка на існування id та коректність значення
-if (!isset($news[$newsId])) {
-   // Якщо id неправильне, можна перенаправити на сторінку помилки або просто вивести повідомлення
-   echo "Новину не знайдено.";
-   exit;
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+   $newsId = $_GET['id'];
+   $sqlSelectOne = "SELECT * FROM hrytsiv_news WHERE id = $newsId";
+   $resultOne = mysqli_query($db_server, $sqlSelectOne);
+   $news = [];
+   if (mysqli_num_rows($resultOne) > 0) {
+      while ($row = mysqli_fetch_assoc($resultOne)) {
+         $news[] = $row;
+      }
+      foreach ($news as $item) {
+         echo "<h2>" . $item['title'] . "</h2>";
+         echo "<p><strong>Date:</strong>" . $item['date_published'] . "</p><br>";
+         echo "<p class='content'>" . $item['content'] . "</p>";
+      }
+   } else {
+      echo "Новину не знайдено";
+   }
 }
-
-$selectedNews = $news[$newsId];
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title><?php echo $selectedNews['title']; ?></title>
-</head>
-
-<body>
-   <h1><?php echo $selectedNews['title']; ?></h1>
-   <p><strong>Date:</strong> <?php echo $selectedNews['date_published']; ?></p>
-   <p><?php echo $selectedNews['content']; ?></p>
-</body>
-
-</html>
-
 <div class="next_task">
    <div>
-
+      <a href="lab9.4.php">
+         << Повернутись до новин |</a>
+            <a href="lab9.5.php">| Завдання 5>></a>
    </div>
    <a href="/index.php">Головна</a>
 </div>
