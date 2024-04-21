@@ -13,6 +13,6 @@ INSERT INTO `pages` (`title`, `content`, `url`) VALUES
 ";
 
 
-mysqli_query($db_server, $sqlInsert);
+// mysqli_query($db_server, $sqlInsert);
 
 $db_server->close();
