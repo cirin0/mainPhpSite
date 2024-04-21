@@ -14,10 +14,10 @@ $db_pass = 'VK77DjHWEneB';
 
 $db_server = new mysqli("$db_host", "$db_user", "$db_pass", "$db_name");
 
-
 if ($db_server->connect_error) {
    die("Connection failed: " . $db_server->connect_error);
 }
+$db_server->set_charset("utf8");
 $query = $_POST['query'];
 
 $stmt = $db_server->prepare("SELECT content, title, url FROM pages WHERE title LIKE ? OR content LIKE ?");

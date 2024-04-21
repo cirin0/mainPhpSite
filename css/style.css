@@ -116,7 +116,8 @@ th {
 input[type="text"],
 input[type="password"],
 input[type="email"],
-input[type="number"] {
+input[type="number"],
+input[type="date"] {
    width: 100%;
    padding: 10px;
    margin-bottom: 15px;
