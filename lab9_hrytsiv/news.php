@@ -20,7 +20,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
       foreach ($news as $item) {
          echo "<h2>" . $item['title'] . "</h2>";
          echo "<p><strong>Date:</strong>" . $item['date_published'] . "</p><br>";
+         echo "<div>";
          echo "<p class='content'>" . $item['content'] . "</p>";
+         echo "</div>";
       }
    } else {
       echo "Новину не знайдено";

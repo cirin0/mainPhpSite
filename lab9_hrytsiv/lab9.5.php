@@ -12,13 +12,14 @@ $sqlDelete = "DELETE FROM hrytsiv_news WHERE id = 5";
 mysqli_query($db_server, $sqlDelete);
 $sqlSelect = "SELECT id, topic, title, date_published FROM hrytsiv_news";
 $result = mysqli_query($db_server, $sqlSelect);
-
+echo "<div class='table'>";
 echo "<table border='1'>";
 echo "<tr><th>ID</th><th>Topic</th><th>Title</th><th>Date Published</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) {
    echo "<tr><td>" . $row['id'] . "</td><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
 }
 echo "</table>";
+echo "</div>";
 
 mysqli_close($db_server);
 ?>

@@ -11,15 +11,17 @@ $db_server->set_charset("utf8");
 $sqlSelect = "SELECT * FROM hrytsiv_news ORDER BY date_published DESC LIMIT 3";
 $result = mysqli_query($db_server, $sqlSelect);
 echo "<h2>Головне:</h2>";
+echo "<div class='news'>";
 echo "<ul>";
 while ($row = mysqli_fetch_assoc($result)) {
    echo "<li><a href='news.php?id=" . $row['id'] . "'>" . $row['title'] . "</a></li>";
 }
 echo "</ul>";
+echo "</div>";
 
 $sqlSelectTopics = "SELECT DISTINCT topic FROM hrytsiv_news";
 $resultTopics = mysqli_query($db_server, $sqlSelectTopics);
-
+echo "<div class='news'>";
 while ($rowTopic = mysqli_fetch_assoc($resultTopics)) {
    $topic = $rowTopic['topic'];
    echo "<h2><a href='topic.php?topic=$topic'>$topic</a>:</h2>";
@@ -32,6 +34,7 @@ while ($rowTopic = mysqli_fetch_assoc($resultTopics)) {
    }
    echo "</ul>";
 }
+echo "</div>";
 $totalNews = mysqli_num_rows(mysqli_query($db_server, "SELECT * FROM hrytsiv_news"));
 
 file_put_contents("./files/out.txt", "Загальна кількість новин: " . $totalNews);

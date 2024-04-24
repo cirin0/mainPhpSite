@@ -31,7 +31,7 @@ mysqli_close($db_server);
       <label for="title">Заголовок:</label>
       <input type="text" id="title" name="title" required>
       <label for="content">Контент:</label>
-      <textarea id="content" name="content" rows="4" cols="50" required></textarea><br>
+      <textarea id="content" name="content" rows="4" cols="50" required></textarea>
       <input type="submit" value="Додати новину">
    </form>
 </div>

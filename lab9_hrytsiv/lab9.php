@@ -47,14 +47,16 @@ $sqlCreate = "CREATE TABLE hrytsiv_news (
 $sqlSelect = "SELECT * FROM hrytsiv_news";
 $result = mysqli_query($db_server, $sqlSelect);
 $resultCheck = mysqli_num_rows($result);
+echo "<div class='table'>";
 echo "<table border='1'>";
 echo "<tr><th>Topic</th><th>Title</th><th>Content</th><th>Date Published</th></tr>";
 if ($resultCheck > 0) {
    while ($row = mysqli_fetch_assoc($result)) {
-      echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td>" . $row['content'] . "</td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
+      echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td><p class='mobile'>" . $row['content'] . "</p></td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
    }
 }
 echo "</table>";
+echo "</div>";
 
 mysqli_close($db_server);
 fclose($fdataMy);

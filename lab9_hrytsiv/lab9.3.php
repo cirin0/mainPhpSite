@@ -38,12 +38,14 @@ $idsStr = implode(",", $idList);
 $sqlSelect = "SELECT * FROM hrytsiv_news WHERE id IN ($idsStr)";
 
 $result = mysqli_query($db_server, $sqlSelect);
+echo "<div class='table'>";
 echo "<table border='1'>";
 echo "<tr><th>Topic</th><th>Title</th><th>Content</th><th>Date Published</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) {
-   echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td>" . $row['content'] . "</td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
+   echo "<tr><td>" . $row['topic'] . "</td><td>" . $row['title'] . "</td><td><p class='mobile'>" . $row['content'] . "</p></td><td class='dateP'>" . $row['date_published'] . "</td></tr>";
 }
 echo "</table>";
+echo "</div>";
 
 mysqli_close($db_server);
 fclose($fdataMy);

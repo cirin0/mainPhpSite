@@ -2,6 +2,10 @@
    min-width: 180px;
 }
 
+.wrapper {
+   align-items: normal;
+}
+
 li {
    cursor: pointer;
    list-style: none;
@@ -11,4 +15,23 @@ li {
    display: block;
    max-width: 50%;
    line-height: 1.7;
+}
+
+.table {
+   overflow-x: auto;
+}
+
+.mobile {
+   height: 130px;
+   overflow: hidden;
+}
+
+.news {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+}
+
+li:hover {
+   border-radius: 5px;
 }

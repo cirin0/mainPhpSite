@@ -18,11 +18,13 @@ if (isset($_GET['topic']) && !empty($_GET['topic'])) {
       $sqlSelectTopics = "SELECT * FROM hrytsiv_news WHERE topic='$topic'";
       $resultTopics = mysqli_query($db_server, $sqlSelectTopics);
       echo "<h2>$topic:</h2>";
+      echo "<div class='news'>";
       echo "<ul>";
       while ($row = mysqli_fetch_assoc($resultTopics)) {
          echo "<li><a href='news.php?id=" . $row['id'] . "'>" . $row['title'] . "</a></li>";
       }
       echo "</ul>";
+      echo "</div>";
    } else {
       echo "Тематику не знайдено";
    }
