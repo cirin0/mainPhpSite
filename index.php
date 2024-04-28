@@ -57,6 +57,7 @@
       <a href=lab7_hrytsiv/lab7.php>lab7.php</a>
       <a href=lab8_DB/lab8.1-3.php>PHP+Lab8DB</a>
       <a href=lab9_hrytsiv/lab9.php>lab9.php</a>
+      <a href=lab10_hrytsiv/lab10.php>lab10.php</a>
       <a href=labJS_hrytsiv/labJS.php>PHP+JS</a>";
       echo "</div>";
       echo "zm=$zm <br>";
