@@ -9,12 +9,22 @@ $db_server->set_charset("utf8");
 ?>
 <h2>Завдання 1</h2>
 <?php
-unset($_SESSION['passwd']);
+if (isset($_SESSION['login'])) {
+   echo "<p>Ви увійшли як користувач {$_SESSION['login']}</p>";
+} else {
+   echo "<p>Ви увійшли як гість</p>";
+   echo '<a href="lab10.6.php">Авторизуйтесь</a>';
+}
+echo "<br>";
+unset($_SESSION['passw']);
 unset($_SESSION['login']);
 echo session_id();
 echo "<br>";
 echo session_name();
-echo '<p style="font-size: 25px;"><a href="authorize.php">Секретна сторінка</a></p>';
+echo '<div style="font-size: 25px;">';
+echo '<a href="secret_info.php">Секретна сторінка</a> <br>';
+echo '<a href="lab10.5.php">Форма реєстрація</a>';
+echo "</div>";
 ?>
 <h2>Приклад знищення сесій</h2>
 <?php

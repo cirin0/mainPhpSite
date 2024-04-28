@@ -44,7 +44,7 @@ echo "<br>Cекретна інформація на сторінці secret_othe
    <div>
       <a href="lab10.php">
          << Завдання 1 |</a>
-            <a href="lab10.3.php">| Завдання 3 >></a>
+            <a href="lab10.5.php">| Завдання 5 >></a>
    </div>
    <a href="/index.php">Головна</a>
 </div>

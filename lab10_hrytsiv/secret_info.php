@@ -1,5 +1,7 @@
 <?php
 session_start();
+if (!($_SESSION['login'] && $_SESSION['password']))
+   Header("Location: authorize.php");
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
@@ -9,18 +11,15 @@ $db_server->set_charset("utf8");
 ?>
 <h2>Секретна інформація</h2>
 <?php
-if (!($_SESSION['login'] == 'pit' && $_SESSION['passwd'] == 123))
-   Header("Location: authorize.php");
 print_r($_SESSION);
 echo "<br>";
 if (isset($_SESSION['login'])) {
    echo "<br><p>Ви увійшли як користувач {$_SESSION['login']}</p>";
-   echo '<a href="secret_other.php">Перейти на іншу секретну сторінку</a>';
 } else {
    echo "<br><p>Ви увійшли як гість</p>";
    echo '<a href="authorize.php">Авторизуйтесь</a>';
 }
-echo "<br>";
+echo '<br><a href="secret_other.php">Перейти на іншу секретну сторінку</a>';
 echo "<br>Cекретна інформація";
 ?>
 <div class="next_task">
