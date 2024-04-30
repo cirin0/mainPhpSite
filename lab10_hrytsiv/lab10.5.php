@@ -3,8 +3,8 @@ session_start();
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Завдання 5</h2>
@@ -37,8 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "Помилка: " . $sql . "<br>" . mysqli_error($db_server);
    }
 }
-// mysqli_close($db_server);
-
 ?>
 <div class="form_container">
    <form method="POST">

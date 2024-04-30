@@ -6,11 +6,12 @@ if (isset($_SESSION['login'])) {
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Сторінка авторизації</h2>
+<p>Логін: pit<br>Пароль: 123</p><br>
 <?php
 print_r($_SESSION);
 if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['go'])) {
@@ -20,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['go'])) {
       header("Location: secret_info.php");
    } else {
       echo "Неправильне введення, спробуйте ще раз! <br>";
-      echo "<a href='authorize.php'>Спробувати ще раз</a>";
       echo "<br>";
       print_r($_SESSION);
    }

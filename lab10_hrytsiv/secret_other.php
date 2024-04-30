@@ -3,8 +3,8 @@ session_start();
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Завдання 2</h2>

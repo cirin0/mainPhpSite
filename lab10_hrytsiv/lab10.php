@@ -3,8 +3,8 @@ session_start();
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Завдання 1</h2>
@@ -16,7 +16,7 @@ if (isset($_SESSION['login'])) {
    echo '<a href="lab10.6.php">Авторизуйтесь</a>';
 }
 echo "<br>";
-unset($_SESSION['passw']);
+unset($_SESSION['passwd']);
 unset($_SESSION['login']);
 echo session_id();
 echo "<br>";

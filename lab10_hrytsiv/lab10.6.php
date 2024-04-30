@@ -1,23 +1,19 @@
 <?php
 session_start();
-
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Сторінка авторизації</h2>
 <?php
-// if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
-//    header("Location: secret_info.php");
-//    exit();
-// }
 print_r($_SESSION);
+echo "<br>";
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['login']) && isset($_GET['password'])) {
-   $login = $_GET['login'];
-   $password = $_GET['password'];
+   $login = urlencode($_GET['login']);
+   $password = urlencode($_GET['password']);
    $sql = "SELECT * FROM user_for_session WHERE login = '$login' AND password = '$password'";
    $result = mysqli_query($db_server, $sql);
    if ($result->num_rows == 1) {
@@ -26,7 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['login']) && isset($_GET
       header("Location: secret_info.php");
       exit();
    } else {
-      echo "Невірний логін або пароль";
+      echo "Зареєструйтесь або введіть правильний логін та пароль! <br>";
+      echo "<a href='lab10.5.php'>Зареєструватись</a>";
    }
 }
 ?>

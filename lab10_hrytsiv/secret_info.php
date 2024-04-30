@@ -1,12 +1,12 @@
 <?php
 session_start();
-if (!($_SESSION['login'] && $_SESSION['password']))
+if (!($_SESSION['login'] == 'pit' && $_SESSION['passwd'] == '123' || $_SESSION['password']))
    Header("Location: authorize.php");
 $title = "Лабораторна робота №10";
 global $db_server;
 require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+// include_once '../db copy.php';
+include_once '../db.php';
 $db_server->set_charset("utf8");
 ?>
 <h2>Секретна інформація</h2>
