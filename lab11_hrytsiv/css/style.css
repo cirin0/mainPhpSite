@@ -1,0 +1,133 @@
+li {
+   list-style: none;
+}
+
+li:hover {
+   background-color: transparent;
+}
+
+img {
+   width: 250px;
+   /* cursor: pointer; */
+   /* margin: 5px; */
+   aspect-ratio: 6 / 5;
+   border-radius: 10px;
+}
+
+.product {
+
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   flex-direction: row;
+   gap: 20px;
+}
+
+.product_items {
+   min-width: 200px;
+   border-radius: 10px;
+   cursor: pointer;
+   border: 1px solid #ccc;
+   background-color: inherit;
+   padding: 15px;
+}
+
+.product_items img {
+   margin-bottom: 5px;
+}
+
+.product_price {
+   margin-bottom: 10px;
+}
+
+.product_name {
+   font-size: 25px;
+   font-weight: bold;
+   margin-bottom: 10px;
+}
+
+.product_items p {
+   font-size: 20px;
+}
+
+.product_items:hover {
+   background-color: #f9f9f9;
+}
+
+.forgot_chesk {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   margin-bottom: 10px;
+}
+
+.forgot_pass {
+   padding: 13px;
+   border-radius: 10px;
+   border: 1px solid #ccc;
+}
+
+.success {
+   padding: 13px;
+   border-radius: 10px;
+   border: 1px solid #ccc;
+}
+
+/* .login_chesk {
+   display: flex;
+   flex-direction: row;
+} */
+
+.login_row {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   justify-content: center;
+
+   div,
+   label,
+   input {
+      cursor: pointer;
+   }
+
+   label {
+      font-size: 18px;
+   }
+}
+
+.info {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 20px;
+}
+
+.register_pass {
+   display: flex;
+   gap: 10px;
+}
+
+/* **********header************ */
+.header {
+   min-height: 80px;
+   display: flex;
+   justify-content: space-evenly;
+
+   .header__menu {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+   }
+
+   .header__link {
+      font-size: 20px;
+
+      a {
+         color: black;
+      }
+   }
+}
+
+
+
+/* **************************** */

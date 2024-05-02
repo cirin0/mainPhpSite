@@ -73,4 +73,23 @@
          "?>"
       ]
    },
+   "lab11": {
+      "prefix": "sstart",
+      "body": [
+         "<?php",
+         "$$title = \"$2\";",
+         "global $$db_server;",
+         "require '../components/header.php';",
+         "include_once '../db copy.php';",
+         "// include_once '../db.php';",
+         "$$db_server->set_charset(\"utf8\");",
+         "?>",
+         "<?php",
+         "$0",
+         "?>",
+         "<?php",
+         "require '../components/footer.php';",
+         "?>"
+      ]
+   },
 }
