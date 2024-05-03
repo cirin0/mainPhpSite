@@ -41,7 +41,7 @@ include_once 'action.php';
       </div>
       <div class="product">
          <?php
-         $query = "SELECT name, image, price FROM hrytsiv_storage ORDER BY RAND() LIMIT 4";
+         $query = "SELECT * FROM hrytsiv_storage ORDER BY RAND() LIMIT 4";
          $result = mysqli_query($db_server, $query);
          if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
@@ -49,6 +49,8 @@ include_once 'action.php';
                echo "<img src='images/{$row['image']}' alt='{$row['name']}'>";
                echo "<p class = 'product_name'>{$row['name']}</p>";
                echo "<p class = 'product_price'>{$row['price']} грн.</p>";
+               echo "<p class = 'product_quantity'>Кількість: {$row['quantity']}</p>";
+               echo "<p class = 'product_dateAdd'>Дата додавання: {$row['date_added']}</p>";
                echo "</div>";
             }
          } else {

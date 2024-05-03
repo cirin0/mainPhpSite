@@ -55,6 +55,11 @@ img {
    background-color: #f9f9f9;
 }
 
+.product_dateAdd {
+   overflow: hidden;
+   max-width: 290px;
+}
+
 .forgot_chesk {
    display: flex;
    flex-direction: column;
@@ -120,10 +125,19 @@ img {
    }
 
    .header__link {
-      font-size: 20px;
-
       a {
+         font-size: 20px;
          color: black;
+         padding: 7px;
+         background-color: darkgray;
+         border-radius: 15px;
+
+
+      }
+
+      :hover {
+         background-color: #d6d0d0;
+         text-decoration: none;
       }
    }
 }
