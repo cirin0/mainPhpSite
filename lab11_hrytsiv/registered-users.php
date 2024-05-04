@@ -26,7 +26,6 @@ if ($resultCheck > 0) {
 echo "</table>";
 echo "</div>";
 mysqli_close($db_server);
-
 ?>
 
 <?php

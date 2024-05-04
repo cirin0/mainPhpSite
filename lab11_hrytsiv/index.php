@@ -26,44 +26,26 @@ $sqlInsertData = "INSERT INTO hrytsiv_storage (name, image, price, quantity) VAL
 ?>
 <?php
 include_once 'action.php';
+include_once 'helperFunc.php';
 ?>
 <h1>Інтернет-магазин домашніх тварин</h1>
-<div>
-   <section class="guest-info">
-      <h2>Ви увійшли як гість</h2>
-      <div class="info">
-         <?php
-         if (isset($_SESSION['success_message'])) {
-            echo "<p class='success'>" . $_SESSION['success_message'] . "</p>";
-            unset($_SESSION['success_message']);
-         }
-         ?>
-      </div>
-      <div class="product">
-         <?php
-         $query = "SELECT * FROM hrytsiv_storage ORDER BY RAND() LIMIT 4";
-         $result = mysqli_query($db_server, $query);
-         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-               echo "<div class='product_items'>";
-               echo "<img src='images/{$row['image']}' alt='{$row['name']}'>";
-               echo "<p class = 'product_name'>{$row['name']}</p>";
-               echo "<p class = 'product_price'>{$row['price']} грн.</p>";
-               echo "<p class = 'product_quantity'>Кількість: {$row['quantity']}</p>";
-               echo "<p class = 'product_dateAdd'>Дата додавання: {$row['date_added']}</p>";
-               echo "</div>";
-            }
-         } else {
-            echo "<p>В даний момент товари недоступні.</p>";
-         }
-         mysqli_close($db_server);
-         ?>
-      </div>
-   </section>
-</div>
 <?php
-
+if (isset($_SESSION['success_message'])) {
+   echo "<div class='info'>";
+   echo "<p class='success'>" . $_SESSION['success_message'] . "</p>";
+   unset($_SESSION['success_message']);
+   echo "</div>";
+}
 ?>
+<div>
+   <?php
+   if (isset($_SESSION['login'])) {
+      echo "<h2>Ви увійшли як {$_SESSION['login']}</h2>";
+   } else {
+      PrintUnLogData($db_server);
+   }
+   ?>
+</div>
 <?php
 require '../components/footer.php';
 ?>

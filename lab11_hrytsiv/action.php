@@ -6,5 +6,6 @@
       <li class="header__link"><a href="forgot-password.php">Забули пароль</a></li>
       <li class="header__link"><a href="registered-users.php">Зареєстровані користувачі</a></li>
       <li class="header__link"><a href="warehouse.php">Склад</a></li>
+      <li class="header__link"><a href="logout.php">Вихід</a></li>
    </ul>
 </section>

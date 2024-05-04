@@ -22,12 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $user_category = $_POST['user_category'];
    $sqlInsert = "INSERT INTO hrytsiv_users (first_name, last_name ,login, password, repeat_password, user_category) VALUES ('$name', '$surname','$login', '$password', '$repeat_password', '$user_category')";
    if ($password === $repeat_password) {
-      if ($db_server->query($sqlInsert) === TRUE) {
-         $_SESSION['success_message'] = "Ви успішно зареєструвалися</p>";
-         header('Location: index.php');
-         exit;
+      //* перевірка чи користувач вже існує з таким емейл і категорією
+      $sqlSelect = "SELECT * FROM hrytsiv_users WHERE login = '$login' AND user_category = '$user_category'";
+      $result = $db_server->query($sqlSelect);
+      if ($result->num_rows > 0) {
+         echo "<p class='success'>Користувач з таким Email та Категорією вже зареєстрований</p>";
       } else {
-         echo "<p class='success'>Помилка реєстрації, спробуйте ще раз</p>";
+         if ($db_server->query($sqlInsert) === TRUE) {
+            $_SESSION['success_message'] = "Ви успішно зареєструвалися";
+            header('Location: index.php');
+            exit;
+         } else {
+            echo "<p class='success'>Помилка реєстрації, спробуйте ще раз</p>";
+         }
       }
    } else {
       echo "<p class='success'>Паролі не співпадають</p>";

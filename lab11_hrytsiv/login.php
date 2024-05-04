@@ -19,12 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    foreach ($user_category as $category) {
       $user_category = $category;
    }
-   $sqlSelect = "SELECT login, password, user_category FROM hrytsiv_users WHERE login = '$email' AND password = '$password' AND user_category = '$category'";
+   $sqlSelect = "SELECT * FROM hrytsiv_users WHERE login = '$email' AND password = '$password' AND user_category = '$category'";
    $result = mysqli_query($db_server, $sqlSelect);
    $resultCheck = mysqli_num_rows($result);
    if ($resultCheck > 0) {
       while ($row = mysqli_fetch_assoc($result)) {
-         $_SESSION['login'] = $row['login'];
+         $_SESSION['login'] = $row['first_name'] . ' ' . $row['last_name'];
          $_SESSION['user_category'] = $row['user_category'];
          header('Location: index.php');
       }
