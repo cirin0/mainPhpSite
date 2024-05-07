@@ -1,3 +1,16 @@
+html,
+body {
+   height: 100%;
+}
+
+.wrapper {
+   min-height: 100%;
+}
+
+.main {
+   flex: 1 1 auto;
+}
+
 li {
    list-style: none;
 }
@@ -7,7 +20,7 @@ li:hover {
 }
 
 img {
-   width: 250px;
+   width: 300px;
    /* cursor: pointer; */
    /* margin: 5px; */
    aspect-ratio: 6 / 5;
@@ -21,11 +34,12 @@ img {
    justify-content: center;
    flex-wrap: wrap;
    flex-direction: row;
-   gap: 20px;
+   gap: 30px;
+   margin-bottom: 20px;
 }
 
 .product_items {
-   min-width: 200px;
+   min-width: 20%;
    border-radius: 10px;
    cursor: pointer;
    border: 1px solid #ccc;
@@ -56,11 +70,39 @@ img {
 }
 
 .product_dateAdd {
-   overflow: hidden;
-   max-width: 290px;
+   /* overflow: hidden; */
+   max-width: 345px;
+}
+
+.product_details p {
+   font-size: 20px;
+}
+
+a.link_item {
+   text-decoration: none;
+   color: black;
+}
+
+a.link_item:hover {
+   text-decoration: none;
 }
 
 /* ************************************ */
+
+.logged {
+   font-size: 20px;
+   border-radius: 7px;
+   padding: 5px;
+   border: 1px solid #000;
+}
+
+.logged_main {
+   display: flex;
+   justify-content: center;
+   margin: 10px 0px;
+}
+
+/* ************************************* */
 
 
 .forgot_chesk {
@@ -82,6 +124,47 @@ img {
    border: 1px solid #ccc;
    font-size: 20px;
 }
+
+.error_registration {
+   padding: 13px;
+   border-radius: 10px;
+   border: 1px solid #ccc;
+   font-size: 20px;
+   color: red;
+}
+
+.error {
+   /* padding: 13px; */
+   /* border-radius: 10px; */
+   /* border: 1px solid #ccc; */
+   /* font-size: 20px; */
+   color: red;
+   text-decoration: underline;
+   position: absolute;
+   top: 24px;
+   right: 5px;
+}
+
+.error_sur {
+   top: 80px;
+
+}
+
+.error_email {
+   top: 136px;
+}
+
+.error_pass {
+   top: 197px;
+}
+
+
+.form_container form {
+   align-items: normal;
+   position: relative;
+}
+
+
 
 /* .login_chesk {
    display: flex;
@@ -126,6 +209,10 @@ img {
       display: flex;
       gap: 30px;
       align-items: center;
+
+      .link_regg {
+         display: none;
+      }
    }
 
    .header__link {
@@ -145,3 +232,12 @@ img {
 }
 
 /* **************************** */
+
+.footer {
+   font-size: 20px;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   align-items: center;
+   min-height: 70px;
+}

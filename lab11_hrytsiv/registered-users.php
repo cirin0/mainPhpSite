@@ -1,20 +1,25 @@
 <?php
 $title = "Зареєстровані користувачі";
 global $db_server;
-require '../components/header.php';
-include_once '../db copy.php';
-// include_once '../db.php';
+$localEnvironment = false;
+include_once '../components/header.php';
+include_once './db/islocal.php';
+if ($localEnvironment) {
+   include_once './db/db copy.php';
+} else {
+   include_once './db/db.php';
+}
 $db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
 ?>
-<h1>Зареєстровані користувачі</h1>
-<br>
 <?php
 $query = "SELECT * FROM hrytsiv_users";
 $result = mysqli_query($db_server, $query);
 $resultCheck = mysqli_num_rows($result);
+echo "<div class='main'>";
+echo "<h1>Зареєстровані користувачі</h1>" . "<br>";
 echo "<div class='table'>";
 echo "<table border='1'>";
 echo "<tr><th>Ім'я</th><th>Прізвище</th><th>Логін</th><th>Пароль</th><th>Категорія користувача</th></tr>";
@@ -25,9 +30,11 @@ if ($resultCheck > 0) {
 }
 echo "</table>";
 echo "</div>";
+echo "</div>";
 mysqli_close($db_server);
 ?>
 
 <?php
+include_once 'footer.php';
 require '../components/footer.php';
 ?>
