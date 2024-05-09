@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login'])) {
-   $_SESSION['success_message'] = "Вийдіть з аккаунту, щоб змінити користувача";
+   $_SESSION['message']['error'] = "Вийдіть з аккаунту, щоб змінити користувача";
    header('Location: index.php');
    exit;
 }
@@ -21,17 +21,22 @@ $db_server->set_charset("utf8");
 include_once 'action.php';
 ?>
 <?php
-if (isset($_SESSION['success_message'])) {
+// print_r($_SESSION);
+if (isset($_SESSION['message'])) {
    echo "<div class='info'>";
-   echo "<p class='success'>" . $_SESSION['success_message'] . "</p>";
-   unset($_SESSION['success_message']);
+   if ($_SESSION['message']) {
+      echo "<p class='error_message'>" . $_SESSION['message']['error'] . "</p>";
+   } elseif ($_SESSION['message']) {
+      echo "<p class='success_message'>" . $_SESSION['message']['success'] . "</p>";
+   }
+   unset($_SESSION['message']);
    echo "</div>";
 }
 ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-   $email = $_POST['email'];
-   $password = $_POST['password'];
+   $email = trim($_POST['email']);
+   $password = trim($_POST['password']);
    $user_category = $_POST['user_category'];
    foreach ($user_category as $category) {
       $user_category = $category;
@@ -46,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          header('Location: index.php');
       }
    } else {
-      echo "<p class='success forgot_pass'>Користувача з таким логіном, паролем та категорією не знайдено</p>";
+      echo "<p class='error_message'>Користувача з таким логіном, паролем та категорією не знайдено</p>";
    }
 }
 ?>
@@ -54,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    <h1>Вхід</h1>
    <div class="form_container">
       <form method="post">
-         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" required>
-         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" required>
+         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" value="test@gmail.com" required>
+         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="1234" required>
          <div class="forgot_chesk login_chesk">
             <label>Категорія користувача:</label>
             <div class="login_row">
