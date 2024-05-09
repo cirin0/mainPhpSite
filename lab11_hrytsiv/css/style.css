@@ -8,7 +8,9 @@ body {
 }
 
 .main {
+   display: flex;
    flex: 1 1 auto;
+   flex-direction: column;
 }
 
 li {
@@ -55,6 +57,10 @@ img {
    margin-bottom: 10px;
 }
 
+.item_image_cart {
+   width: 200px;
+}
+
 .product_name {
    font-size: 25px;
    font-weight: bold;
@@ -85,6 +91,21 @@ a.link_item {
 
 a.link_item:hover {
    text-decoration: none;
+}
+
+.product_items_row {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+   justify-content: center;
+   align-items: center;
+}
+
+.product_items_wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
 }
 
 /* ************************************ */
@@ -118,7 +139,33 @@ a.link_item:hover {
    border: 1px solid #ccc;
 }
 
+.success_audit {
+   background-color: gainsboro;
+   height: 10rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
 .success {
+   padding: 13px;
+   border-radius: 10px;
+   border: 1px solid #ccc;
+   font-size: 20px;
+}
+
+.success_message {
+   background-color: #d9ffdb;
+   color: green;
+   padding: 13px;
+   border-radius: 10px;
+   border: 1px solid #ccc;
+   font-size: 20px;
+}
+
+.error_message {
+   background-color: #ffdada;
+   color: red;
    padding: 13px;
    border-radius: 10px;
    border: 1px solid #ccc;
@@ -160,7 +207,7 @@ a.link_item:hover {
 
 
 .form_container form {
-   align-items: normal;
+   /* align-items: normal; */
    position: relative;
 }
 
@@ -207,7 +254,7 @@ a.link_item:hover {
 
    .header__menu {
       display: flex;
-      gap: 30px;
+      gap: 10px;
       align-items: center;
 
       .link_regg {
@@ -231,6 +278,14 @@ a.link_item:hover {
    }
 }
 
+.back_to_product {
+   font-size: 20px;
+   color: black;
+   padding: 7px;
+   background-color: darkgray;
+   border-radius: 15px;
+}
+
 /* **************************** */
 
 .footer {
@@ -241,3 +296,24 @@ a.link_item:hover {
    align-items: center;
    min-height: 70px;
 }
+
+.summary {
+   font-weight: bold;
+   font-size: 20px;
+}
+
+
+
+
+/* ****************input type file */
+input::file-selector-button {
+   font-weight: bold;
+   color: green;
+   padding: 0.5em;
+   border: thin solid grey;
+   border-radius: 3px;
+   width: 50%;
+   margin-bottom: 15px;
+}
+
+/* **************************** */
