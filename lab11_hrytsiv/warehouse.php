@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['user_category'] !== 'Seller') {
-   $_SESSION['success_message'] = "Увійдіть як продавець для перегляду Складу";
+   $_SESSION['message']['error'] = "Увійдіть як продавець для перегляду Складу";
    header('Location: index.php');
    exit();
 }
@@ -19,19 +19,15 @@ $db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
-include_once 'helperFunc.php';
+include_once 'helper_function.php';
 ?>
 <?php
 ?>
 <div class="main">
    <h2>Склад</h2>
    <?php
-   if (($_SESSION['login']) && $_SESSION['user_category'] === 'Seller') {
-      echo "<div class='logged_main'>";
-      echo "<p class='logged'>Ви увійшли як продавець під іменем {$_SESSION['login']}</p>";
-      echo "</div>";
-      PrintProductCard($db_server);
-   }
+   include_once './comp/loged.php';
+   PrintProductCard($db_server);
    ?>
 </div>
 <?php
