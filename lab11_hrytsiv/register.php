@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login'])) {
-   $_SESSION['message']['error'] = "Щоб зареєструватися, вийдіть з аккаунту";
+   $_SESSION['message']['error'] = "Щоб зареєструватися, вийдіть з акаунту";
    header('Location: index.php');
    exit;
 }
@@ -15,7 +15,6 @@ if ($localEnvironment) {
 } else {
    include_once './db/db.php';
 }
-$db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
@@ -78,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                <input type="email" name="login" id="login" placeholder="Введіть ваш Email">
                <?php
                if (empty(isValidEmail($login)))
-                  echo "<small class='error error_email'>Email має бути від домену pnu.edu.ua</small>"
+                  echo "<small class='error error_email'>Email має бути від домену @pnu.edu.ua</small>"
                ?>
             </div>
          </div>

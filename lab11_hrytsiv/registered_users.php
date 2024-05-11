@@ -9,7 +9,6 @@ if ($localEnvironment) {
 } else {
    include_once './db/db.php';
 }
-$db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';

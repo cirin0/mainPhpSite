@@ -23,8 +23,6 @@ li:hover {
 
 img {
    width: 300px;
-   /* cursor: pointer; */
-   /* margin: 5px; */
    aspect-ratio: 6 / 5;
    border-radius: 10px;
 }
@@ -96,7 +94,7 @@ a.link_item:hover {
 .product_items_row {
    display: flex;
    flex-direction: row;
-   gap: 10px;
+   gap: 15px;
    justify-content: center;
    align-items: center;
 }
@@ -126,7 +124,7 @@ a.link_item:hover {
 /* ************************************* */
 
 
-.forgot_chesk {
+.forgot_check {
    display: flex;
    flex-direction: column;
    gap: 5px;
@@ -181,10 +179,6 @@ a.link_item:hover {
 }
 
 .error {
-   /* padding: 13px; */
-   /* border-radius: 10px; */
-   /* border: 1px solid #ccc; */
-   /* font-size: 20px; */
    color: red;
    text-decoration: underline;
    position: absolute;
@@ -207,16 +201,8 @@ a.link_item:hover {
 
 
 .form_container form {
-   /* align-items: normal; */
    position: relative;
 }
-
-
-
-/* .login_chesk {
-   display: flex;
-   flex-direction: row;
-} */
 
 .login_row {
    display: flex;
@@ -238,7 +224,7 @@ a.link_item:hover {
 .info {
    display: flex;
    justify-content: center;
-   margin: 20px 0px;
+   margin: 10px 0px;
 }
 
 .register_pass {
@@ -256,10 +242,6 @@ a.link_item:hover {
       display: flex;
       gap: 10px;
       align-items: center;
-
-      .link_regg {
-         display: none;
-      }
    }
 
    .header__link {

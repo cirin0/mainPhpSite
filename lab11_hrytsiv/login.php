@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['login'])) {
-   $_SESSION['message']['error'] = "Вийдіть з аккаунту, щоб змінити користувача";
+   $_SESSION['message']['error'] = "Вийдіть з акаунту, щоб змінити користувача";
    header('Location: index.php');
    exit;
 }
@@ -15,23 +15,13 @@ if ($localEnvironment) {
 } else {
    include_once './db/db.php';
 }
-$db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
+include_once 'helper_function.php';
 ?>
 <?php
-// print_r($_SESSION);
-if (isset($_SESSION['message'])) {
-   echo "<div class='info'>";
-   if ($_SESSION['message']) {
-      echo "<p class='error_message'>" . $_SESSION['message']['error'] . "</p>";
-   } elseif ($_SESSION['message']) {
-      echo "<p class='success_message'>" . $_SESSION['message']['success'] . "</p>";
-   }
-   unset($_SESSION['message']);
-   echo "</div>";
-}
+printMessage();
 ?>
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -41,27 +31,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    foreach ($user_category as $category) {
       $user_category = $category;
    }
-   $sqlSelect = "SELECT * FROM hrytsiv_users WHERE login = '$email' AND password = '$password' AND user_category = '$category'";
-   $result = mysqli_query($db_server, $sqlSelect);
-   $resultCheck = mysqli_num_rows($result);
-   if ($resultCheck > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-         $_SESSION['login'] = $row['first_name'] . ' ' . $row['last_name'];
-         $_SESSION['user_category'] = $row['user_category'];
-         header('Location: index.php');
+   if (isset($user_category)) {
+      $sqlSelect = "SELECT * FROM hrytsiv_users WHERE login = '$email' AND password = '$password' AND user_category = '$category'";
+      $result = mysqli_query($db_server, $sqlSelect);
+      $resultCheck = mysqli_num_rows($result);
+      if ($resultCheck > 0) {
+         while ($row = mysqli_fetch_assoc($result)) {
+            $_SESSION['login'] = $row['first_name'] . ' ' . $row['last_name'];
+            $_SESSION['user_category'] = $row['user_category'];
+            header('Location: index.php');
+         }
+      } else {
+         $message = "<p class='error_message'>Користувача з таким логіном, паролем та категорією не знайдено</p>";
       }
    } else {
-      echo "<p class='error_message'>Користувача з таким логіном, паролем та категорією не знайдено</p>";
+      $message = "<p class='error_message'>Виберіть категорію користувача</p>";
    }
 }
 ?>
 <div class="main">
+   <?php echo $message; ?>
    <h1>Вхід</h1>
    <div class="form_container">
       <form method="post">
          <input type="email" name="email" id="email" placeholder="Введіть ваш Email" value="test@gmail.com" required>
          <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="1234" required>
-         <div class="forgot_chesk login_chesk">
+         <div class="forgot_check">
             <label>Категорія користувача:</label>
             <div class="login_row">
                <div>

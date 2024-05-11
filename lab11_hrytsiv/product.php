@@ -15,7 +15,6 @@ if ($localEnvironment) {
 } else {
    include_once './db/db.php';
 }
-$db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
@@ -26,16 +25,7 @@ include_once './comp/loged.php';
 ?>
 <div class="main">
    <?php
-   if (isset($_SESSION['message'])) {
-      echo "<div class='info'>";
-      if ($_SESSION['message']['error']) {
-         echo "<p class='error_message'>" . $_SESSION['message']['error'] . "</p>";
-      } else {
-         echo "<p class='success_message'>" . $_SESSION['message']['success'] . "</p>";
-      }
-      unset($_SESSION['message']);
-      echo "</div>";
-   }
+   printMessage();
    ?>
    <?php
    if (isset($_GET['id']) && is_numeric($_GET['id'])) {
@@ -55,7 +45,7 @@ include_once './comp/loged.php';
          }
          if ($_SESSION['user_category'] === 'Buyer') {
             echo "<div class='form_container form_products'>";
-            echo "<form action='add_product_to_card.php' method='POST'>";
+            echo "<form action='cart.php' method='POST'>";
             echo "<input type='hidden' name='productId' value='" . $id . "'>";
             echo "<label for='quantity'>Кількість:</label>";
             echo "<input type='number' id='quantity' name='quantity' min='1' max='" . $quantity . "' value='1'>";

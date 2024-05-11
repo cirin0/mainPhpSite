@@ -14,7 +14,6 @@ if ($localEnvironment) {
 } else {
    include_once './db/db.php';
 }
-$db_server->set_charset("utf8");
 ?>
 <?php
 include_once 'action.php';
@@ -44,10 +43,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          header('Location: index.php');
          exit();
       } else {
-         $error =  "<p class='error_message'>Помилка завантаження файлу або файл завеликий</p>";
+         $message = "<p class='error_message'>Помилка завантаження файлу або файл завеликий</p>";
       }
    } else {
-      $error = "<p class='error_message'>Неправильний формат файлу</p>";
+      $message = "<p class='error_message'>Неправильний формат файлу</p>";
    }
 }
 ?>
@@ -55,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    <h2>Додати новий товар</h2>
    <?php
    include_once './comp/loged.php';
-   echo $error;
+   echo $message;
    ?>
    <div class="form_container">
       <form method="post" enctype="multipart/form-data">
@@ -63,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          <input type="number" name="price" id="price" placeholder="Введіть ціну товару" require>
          <input type="number" name="quantity" id="quantity" placeholder="Введіть кількість товару" require>
          <input type="file" name="image" id="file-upload" require>
-         <button type="submit" name="add_product">Додати товар</button>
+         <button type="submit">Додати товар</button>
       </form>
    </div>
 </div>

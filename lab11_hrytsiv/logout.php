@@ -8,5 +8,6 @@ if (isset($_SESSION['login'])) {
    header('Location: index.php');
    exit();
 } else {
+   $_SESSION['message']['error'] = "Щоб вийти, спочатку увійдіть";
    header('Location: index.php');
 }

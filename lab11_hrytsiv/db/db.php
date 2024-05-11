@@ -5,9 +5,4 @@ $db_user = 'if0_35935799';
 $db_pass = 'VK77DjHWEneB';
 
 $db_server = new mysqli("$db_host", "$db_user", "$db_pass", "$db_name");
-// if (!$db_server)
-//    die("db.php: Error connect to db_server = $db_host, $db_user, $db_name" . "<br>" . "<br>");
-
-// if ($db_server) {
-//    echo "db.php: good connect to db_server = $db_host, $db_user, $db_name" . "<br>" . "<br>";
-// }
+$db_server->set_charset("utf8");
