@@ -40,8 +40,8 @@ if (isset($_POST['add_to_cart'])) {
 <div class="main">
    <h2>Кошик</h2>
    <?php
-   printMessage();
    include_once './comp/loged.php';
+   printMessage();
    if (!empty($_SESSION['cart'])) {
       echo '<div style="margin: 15px 0px;">
                <a class="back_to_product" href="index.php">Повернутися до товарів</a>

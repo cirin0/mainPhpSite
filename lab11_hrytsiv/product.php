@@ -21,10 +21,11 @@ include_once 'action.php';
 include_once 'helper_function.php';
 ?>
 <?php
-include_once './comp/loged.php';
+
 ?>
 <div class="main">
    <?php
+   include_once './comp/loged.php';
    printMessage();
    ?>
    <?php

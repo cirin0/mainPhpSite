@@ -21,9 +21,6 @@ include_once 'action.php';
 include_once 'helper_function.php';
 ?>
 <?php
-printMessage();
-?>
-<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $email = trim($_POST['email']);
    $password = trim($_POST['password']);
@@ -50,12 +47,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <div class="main">
-   <?php echo $message; ?>
+   <?php
+   printMessage();
+   echo $message;
+   ?>
    <h1>Вхід</h1>
    <div class="form_container">
       <form method="post">
-         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" value="test@gmail.com" required>
-         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="1234" required>
+         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" value="<?php echo $email; ?>" required>
+         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="" required>
          <div class="forgot_check">
             <label>Категорія користувача:</label>
             <div class="login_row">

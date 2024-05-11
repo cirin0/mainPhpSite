@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $price = trim($_POST['price']);
    $quantity = trim($_POST['quantity']);
    $image = $_FILES['image'];
-   $allowedExtensions = ['jpg', 'jpeg', 'png'];
+   $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
    $maxFileSize = 1000000;
 
    if (in_array(pathinfo($image['name'], PATHINFO_EXTENSION), $allowedExtensions)) {
