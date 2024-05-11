@@ -1,5 +1,5 @@
 <?php
-$db_name = 'pet_store';
+$db_name = 'hrytsivdb';
 $db_host = '127.0.0.1';
 $db_user = 'cirin';
 $db_pass = 'Q20012004q';

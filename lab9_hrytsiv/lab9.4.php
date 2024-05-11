@@ -25,12 +25,15 @@ echo "<div class='news'>";
 while ($rowTopic = mysqli_fetch_assoc($resultTopics)) {
    $topic = $rowTopic['topic'];
    echo "<h2><a href='topic.php?topic=$topic'>$topic</a>:</h2>";
-   $sqlSelectByTopic = "SELECT * FROM hrytsiv_news WHERE topic='$topic'";
+   $sqlSelectByTopic = "SELECT * FROM hrytsiv_news WHERE topic='$topic' ORDER BY date_published DESC LIMIT 3   ";
    $resultByTopic = mysqli_query($db_server, $sqlSelectByTopic);
 
    echo "<ul>";
    while ($rowByTopic = mysqli_fetch_assoc($resultByTopic)) {
+      echo "<div>";
+      echo "<p>Дата:" . $rowByTopic['date_published'] . "</p>";
       echo "<li><a href='news.php?id=" . $rowByTopic['id'] . "'>" . $rowByTopic['title'] . "</a></li>";
+      echo "</div>";
    }
    echo "</ul>";
 }
