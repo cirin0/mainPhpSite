@@ -21,12 +21,20 @@ $db_server->set_charset("utf8");
 include_once 'action.php';
 include_once 'helper_function.php';
 ?>
-<?php
-?>
 <div class="main">
    <h2>Склад</h2>
    <?php
    include_once './comp/loged.php';
+   if (isset($_SESSION['message'])) {
+      echo "<div class='info'>";
+      if ($_SESSION['message']['error']) {
+         echo "<p class='error_message'>" . $_SESSION['message']['error'] . "</p>";
+      } else {
+         echo "<p class='success_message'>" . $_SESSION['message']['success'] . "</p>";
+      }
+      unset($_SESSION['message']);
+      echo "</div>";
+   }
    PrintProductCard($db_server);
    ?>
 </div>

@@ -1,5 +1,9 @@
 <?php
 session_start();
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+   header('Location: index.php');
+   exit();
+}
 global $db_server;
 $localEnvironment = false;
 include_once '../components/header.php';
@@ -21,4 +25,4 @@ $resultOne = mysqli_query($db_server, $sqlInsertOne);
 $row = mysqli_fetch_assoc($resultOne);
 $productName = $row['name'];
 $_SESSION['message']['success'] = "Успішно поповнено товар: $productName на $quantity одиниць";
-header('Location: product.php?id=' . $productId);
+header('Location: warehouse.php');
