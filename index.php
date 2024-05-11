@@ -5,7 +5,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="/css/style.css" rel="stylesheet">
-   <script src="/js/searсh.js"></script>
+   <script src="/js/search.js"></script>
    <link rel="shortcut icon" type="image/x-icon" href="./favico.ico">
    <title>My PHP</title>
 </head>
