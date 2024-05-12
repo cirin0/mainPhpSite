@@ -1,7 +1,7 @@
 <?php
 session_start();
-if ($_SESSION['user_category'] !== 'Seller') {
-   $_SESSION['message']['error'] = "Увійдіть як продавець для перегляду Складу";
+if (!isset($_SESSION['login'])) {
+   $_SESSION['message']['error'] = "Увійдіть для перегляду Складу";
    header('Location: index.php');
    exit();
 }

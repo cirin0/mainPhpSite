@@ -22,6 +22,7 @@ session_start();
          echo '<li class="header__link"><a href="cart.php">Кошик</a></li>';
       }
       if (isset($_SESSION['login'])) {
+         echo "<li class='header__link'><a href='delete_profile.php'>Видалити профіль</a></li>";
          echo "<li class='header__link'><a href='logout.php'>Вихід</a></li>";
       }
       ?>

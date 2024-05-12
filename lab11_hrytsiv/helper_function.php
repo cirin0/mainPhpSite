@@ -107,3 +107,17 @@ function isValidPassword($password)
 {
    return strlen($password) >= 6 && preg_match('/[a-zA-Z]/', $password) && preg_match('/\d/', $password) && preg_match('/[_\-.@#$%^&!?\*]/', $password);
 }
+
+function isValid(string $fieldName): void
+{
+   if (!isset($_SESSION['validation'][$fieldName])) {
+      echo "value='{$_POST[$fieldName]}'";
+   }
+}
+
+function printError(string $fieldName): void
+{
+   if (isset($_SESSION['validation'][$fieldName])) {
+      echo "<small class='error $fieldName'>{$_SESSION['validation'][$fieldName]}</small>";
+   }
+}

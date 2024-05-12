@@ -33,7 +33,7 @@ if (isset($_POST['add_to_cart'])) {
    }
    updateProductQuantity($productId, $quantity);
    $_SESSION['message']['success'] = "Товар успішно додано в кошик";
-   header('Location: index.php');
+   header('Location: warehouse.php');
    exit();
 }
 ?>
@@ -44,7 +44,7 @@ if (isset($_POST['add_to_cart'])) {
    printMessage();
    if (!empty($_SESSION['cart'])) {
       echo '<div style="margin: 15px 0px;">
-               <a class="back_to_product" href="index.php">Повернутися до товарів</a>
+               <a class="back_to_product" href="warehouse.php">Повернутися до товарів</a>
             </div>';
    }
    ?>
@@ -80,7 +80,7 @@ if (isset($_POST['add_to_cart'])) {
       }
    } else {
       echo "<h3>Кошик порожній</h3>";
-      echo '<a class="back_to_product" href="index.php">Переглянути товари</a>';
+      echo '<a class="back_to_product" href="warehouse.php">Переглянути товари</a>';
    }
    echo "</div>";
    if (isset($_SESSION['cart'][$productId])) {

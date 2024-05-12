@@ -28,25 +28,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
    $maxFileSize = 1000000;
 
-   if (in_array(pathinfo($image['name'], PATHINFO_EXTENSION), $allowedExtensions)) {
-      if ($image['error'] === 0 && $image['size'] < $maxFileSize) {
-         $imageName = $image['name'];
-         echo "name: $name";
-         echo " price: $price";
-         echo " quantity: $quantity";
-         echo " imageName: $imageName";
-         $imageDestination = './images/' . $imageName;
-         $sqlInsertProduct = "INSERT INTO hrytsiv_storage (name, image, price, quantity) VALUES ('$name', '$imageName', '$price', '$quantity')";
-         mysqli_query($db_server, $sqlInsertProduct);
-         move_uploaded_file($image['tmp_name'], $imageDestination);
-         $_SESSION['message']['success'] = "Товар успішно додано";
-         header('Location: index.php');
-         exit();
-      } else {
-         $message = "<p class='error_message'>Помилка завантаження файлу або файл завеликий</p>";
-      }
+   $sqlCheckProduct = "SELECT * FROM hrytsiv_storage WHERE name = '$name'";
+   $result = mysqli_query($db_server, $sqlCheckProduct);
+   if (mysqli_num_rows($result) > 0) {
+      $message = "<p class='error_message'>Товар з такою назвою вже існує</p>";
    } else {
-      $message = "<p class='error_message'>Неправильний формат файлу</p>";
+      if (in_array(pathinfo($image['name'], PATHINFO_EXTENSION), $allowedExtensions)) {
+         if ($image['error'] === 0 && $image['size'] < $maxFileSize) {
+            $imageName = $image['name'];
+            echo "name: $name";
+            echo " price: $price";
+            echo " quantity: $quantity";
+            echo " imageName: $imageName";
+            $imageDestination = './images/' . $imageName;
+            $sqlInsertProduct = "INSERT INTO hrytsiv_storage (name, image, price, quantity) VALUES ('$name', '$imageName', '$price', '$quantity')";
+            mysqli_query($db_server, $sqlInsertProduct);
+            move_uploaded_file($image['tmp_name'], $imageDestination);
+            $_SESSION['message']['success'] = "Товар успішно додано";
+            header('Location: warehouse.php');
+            exit();
+         } else {
+            $message = "<p class='error_message'>Помилка завантаження файлу або файл завеликий</p>";
+         }
+      } else {
+         $message = "<p class='error_message'>Неправильний формат файлу</p>";
+      }
    }
 }
 ?>

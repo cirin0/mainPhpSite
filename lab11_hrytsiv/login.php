@@ -36,25 +36,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          while ($row = mysqli_fetch_assoc($result)) {
             $_SESSION['login'] = $row['first_name'] . ' ' . $row['last_name'];
             $_SESSION['user_category'] = $row['user_category'];
+            $_SESSION['email'] = $row['login'];
             header('Location: index.php');
          }
       } else {
-         $message = "<p class='error_message'>Користувача з таким логіном, паролем та категорією не знайдено</p>";
+         $_SESSION['message']['error'] = "Користувача з таким логіном, паролем та категорією не знайдено";
       }
    } else {
-      $message = "<p class='error_message'>Виберіть категорію користувача</p>";
+      $_SESSION['message']['error'] = "Виберіть категорію користувача";
    }
 }
 ?>
 <div class="main">
    <?php
    printMessage();
-   echo $message;
    ?>
    <h1>Вхід</h1>
    <div class="form_container">
       <form method="post">
-         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" value="<?php echo $email; ?>" required>
+         <input type="email" name="email" id="email" placeholder="Введіть ваш Email" <?php isValid('email'); ?> required>
          <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="" required>
          <div class="forgot_check">
             <label>Категорія користувача:</label>

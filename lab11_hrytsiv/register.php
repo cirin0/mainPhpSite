@@ -21,6 +21,7 @@ include_once 'action.php';
 include_once 'helper_function.php';
 ?>
 <?php
+$_SESSION['validation'] = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $name = trim($_POST['name']);
    $surname = trim($_POST['surname']);
@@ -28,16 +29,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $password = ($_POST['password']);
    $repeat_password = ($_POST['repeat_password']);
    $user_category = $_POST['user_category'];
-   if (!isValidName($name) || !isValidName($surname)) {
-   } elseif (!isValidEmail($login)) {
-   } elseif (!isValidPassword($password)) {
-   } elseif ($password !== $repeat_password) {
-      echo "<p class='error'>Паролі не співпадають</p>";
+   $errors = [];
+   if (!isValidName($name)) {
+      $errors['name'] = "З великої літери на латині";
+   }
+   if (!isValidName($surname)) {
+      $errors['surname'] = "З великої літери на латині";
+   }
+   if (!isValidEmail($login)) {
+      $errors['login'] = "Email має бути від домену @pnu.edu.ua";
+   }
+   if (!isValidPassword($password)) {
+      $errors['password'] = "Мінімум 6 символів, одна літера, цифра і спец символ";
+   }
+   if ($password !== $repeat_password) {
+      $errors['repeat_password'] = "Паролі не співпадають";
+   }
+   if (!empty($errors)) {
+      $_SESSION['validation'] = $errors;
    } else {
       $sqlSelect = "SELECT * FROM hrytsiv_users WHERE login = '$login' AND user_category = '$user_category'";
       $result = $db_server->query($sqlSelect);
       if ($result->num_rows > 0) {
-         $error = "<p class='error_message'>Користувач з таким Email та Категорією вже зареєстрований</p>";
+         $_SESSION['message']['error'] = "Користувач з таким Email та Категорією вже зареєстрований";
       } else {
          $sqlInsert = "INSERT INTO hrytsiv_users (first_name, last_name ,login, password, repeat_password, user_category) VALUES ('$name', '$surname','$login', '$password', '$repeat_password', '$user_category')";
          if ($db_server->query($sqlInsert) === TRUE) {
@@ -45,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header('Location: index.php');
             exit;
          } else {
-            echo "<p class='error_message'>Помилка реєстрації, спробуйте ще раз</p>";
+            $_SESSION['message']['error'] = "Помилка реєстрації, спробуйте ще раз";
          }
       }
    }
@@ -54,30 +68,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="main">
    <h2>Реєстрація</h2>
    <?php
-   echo $error;
+   printMessage();
    ?>
    <div class="form_container">
       <form method="post">
          <div style="width: 100%;">
             <div>
-               <input type="text" name="name" id="name" placeholder="Введіть ваше ім'я">
+               <input type="text" name="name" id="name" placeholder="Введіть ваше ім'я" <?php isValid("name") ?>>
                <?php
-               if (empty(isValidName($name)))
-                  echo "<small class='error'>З великої літери на латині</small>"
+               printError("name");
                ?>
             </div>
             <div>
-               <input type="text" name="surname" id="surname" placeholder="Введіть ваше прізвище">
+               <input type="text" name="surname" id="surname" placeholder="Введіть ваше прізвище" <?php isValid("surname") ?>>
                <?php
-               if (empty(isValidName($surname)))
-                  echo "<small class='error error_sur'>З великої літери на латині</small>"
+               printError("surname");
                ?>
             </div>
             <div>
-               <input type="email" name="login" id="login" placeholder="Введіть ваш Email">
+               <input type="email" name="login" id="login" placeholder="Введіть ваш Email@pnu.edu.ua" <?php isValid("login") ?>>
                <?php
-               if (empty(isValidEmail($login)))
-                  echo "<small class='error error_email'>Email має бути від домену @pnu.edu.ua</small>"
+               printError("login");
                ?>
             </div>
          </div>
@@ -85,10 +96,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="register_pass">
                <input type="password" name="password" id="password" placeholder="Введіть ваш пароль">
                <input type="password" name="repeat_password" id="repeat_password" placeholder="Повторіть пароль">
+               <?php
+               ?>
             </div>
             <?php
-            if (empty(isValidPassword($password)))
-               echo "<small class='error error_pass'>Мінімум 6 символів, одна латинська літера, одна цифра і один спец символ</small>"
+            printError("password");
+            printError("repeat_password");
             ?>
          </div>
          <label for="user_category">Категорія користувача</label>

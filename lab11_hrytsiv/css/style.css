@@ -5,6 +5,7 @@ body {
 
 .wrapper {
    min-height: 100%;
+   overflow: auto;
 }
 
 .main {
@@ -182,20 +183,24 @@ a.link_item:hover {
    color: red;
    text-decoration: underline;
    position: absolute;
-   top: 24px;
+   top: 25px;
    right: 5px;
 }
 
-.error_sur {
-   top: 80px;
+.surname {
+   top: 83px;
 
 }
 
-.error_email {
-   top: 136px;
+.login {
+   top: 140px;
 }
 
-.error_pass {
+.password {
+   top: 197px;
+}
+
+.repeat_password {
    top: 197px;
 }
 
@@ -234,14 +239,16 @@ a.link_item:hover {
 
 /* **********header************ */
 .header {
-   min-height: 80px;
+   min-height: 70px;
    display: flex;
-   justify-content: space-evenly;
+   padding: 10px 0px;
 
    .header__menu {
       display: flex;
       gap: 10px;
+      padding: 10px 0px;
       align-items: center;
+      flex-wrap: wrap;
    }
 
    .header__link {
@@ -258,6 +265,10 @@ a.link_item:hover {
          text-decoration: none;
       }
    }
+}
+
+.table {
+   overflow-x: auto;
 }
 
 .back_to_product {
