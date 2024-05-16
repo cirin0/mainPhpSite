@@ -76,7 +76,7 @@ img {
 
 .product_dateAdd {
    /* overflow: hidden; */
-   max-width: 345px;
+   max-width: 300px;
 }
 
 .product_details p {
@@ -310,3 +310,13 @@ input::file-selector-button {
 }
 
 /* **************************** */
+
+.products {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+}
+
+.sort {
+   margin-right: 3%;
+}
