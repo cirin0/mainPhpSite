@@ -36,10 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       if (in_array(pathinfo($image['name'], PATHINFO_EXTENSION), $allowedExtensions)) {
          if ($image['error'] === 0 && $image['size'] < $maxFileSize) {
             $imageName = $image['name'];
-            echo "name: $name";
-            echo " price: $price";
-            echo " quantity: $quantity";
-            echo " imageName: $imageName";
             $imageDestination = './images/' . $imageName;
             $sqlInsertProduct = "INSERT INTO hrytsiv_storage (name, image, price, quantity) VALUES ('$name', '$imageName', '$price', '$quantity')";
             mysqli_query($db_server, $sqlInsertProduct);
@@ -64,10 +60,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    ?>
    <div class="form_container">
       <form method="post" enctype="multipart/form-data">
-         <input type="text" name="name" id="name" placeholder="Введіть назву товару" require>
-         <input type="number" name="price" id="price" placeholder="Введіть ціну товару" require>
-         <input type="number" name="quantity" id="quantity" placeholder="Введіть кількість товару" require>
-         <input type="file" name="image" id="file-upload" require>
+         <input type="text" name="name" id="name" placeholder="Введіть назву товару" required>
+         <input type="number" name="price" id="price" placeholder="Введіть ціну товару" required>
+         <input type="number" name="quantity" id="quantity" placeholder="Введіть кількість товару" required>
+         <input type="file" name="image" id="file-upload" required>
          <button type="submit">Додати товар</button>
       </form>
    </div>

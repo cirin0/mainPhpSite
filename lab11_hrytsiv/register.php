@@ -74,19 +74,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <form method="post">
          <div style="width: 100%;">
             <div>
-               <input type="text" name="name" id="name" placeholder="Введіть ваше ім'я" <?php isValid("name") ?>>
+               <input type="text" name="name" id="name" placeholder="Введіть ваше ім'я" <?php isValid("name") ?> required>
                <?php
                printError("name");
                ?>
             </div>
             <div>
-               <input type="text" name="surname" id="surname" placeholder="Введіть ваше прізвище" <?php isValid("surname") ?>>
+               <input type="text" name="surname" id="surname" placeholder="Введіть ваше прізвище" <?php isValid("surname") ?> required>
                <?php
                printError("surname");
                ?>
             </div>
             <div>
-               <input type="email" name="login" id="login" placeholder="Введіть ваш Email@pnu.edu.ua" <?php isValid("login") ?>>
+               <input type="email" name="login" id="login" placeholder="Введіть ваш Email@pnu.edu.ua" <?php isValid("login") ?> required>
                <?php
                printError("login");
                ?>
@@ -94,8 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          </div>
          <div>
             <div class="register_pass">
-               <input type="password" name="password" id="password" placeholder="Введіть ваш пароль">
-               <input type="password" name="repeat_password" id="repeat_password" placeholder="Повторіть пароль">
+               <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" required>
+               <input type="password" name="repeat_password" id="repeat_password" placeholder="Повторіть пароль" required>
                <?php
                ?>
             </div>
