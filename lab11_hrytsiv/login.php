@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    <div class="form_container">
       <form method="post">
          <input type="email" name="email" id="email" placeholder="Введіть ваш Email" <?php isValid('email'); ?> required>
-         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" value="" required>
+         <input type="password" name="password" id="password" placeholder="Введіть ваш пароль" required>
          <div class="forgot_check">
             <label>Категорія користувача:</label>
             <div class="login_row">
